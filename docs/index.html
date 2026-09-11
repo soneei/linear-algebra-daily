@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人话线性代数 · 用生活场景，重讲一遍 MIT 18.06</title>
+<meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
+<meta property="og:title" content="人话线性代数">
+<meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-brand" href="index.html">人话线性代数</a>
+    <div class="nav-spacer"></div>
+    <a class="nav-link" href="https://github.com/soneei/linear-algebra-daily" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1>把线代课<br>从公式堆里<span class="accent">捞出来</span></h1>
+    <p class="lede">把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。</p>
+    <div class="stats">
+      <div class="stat"><div class="n">59</div><div class="l">期</div></div>
+      <div class="stat"><div class="n">36</div><div class="l">课程日</div></div>
+      <div class="stat"><div class="n">23</div><div class="l">番外</div></div>
+      <div class="stat"><div class="n">3<span class="sub">/59</span></div><div class="l">已完稿</div></div>
+    </div>
+  </header>
+
+  <section class="wall-sec">
+    <div class="sec-head">
+      <h2>矩阵墙</h2>
+      <span class="hint">每一格是一期 · 方块=课程日 · 圆点=番外 · 淡色=待整理 · 点进去看看</span>
+    </div>
+    <div class="wall" id="wall">
+      <a class="cell course"
+         href="ep/day-1.html"
+         style="background: hsl(205 34% 90%)"
+         data-t="Day 1 · 单元总述"
+         aria-label="Day 1 单元总述"></a>
+      <a class="cell course"
+         href="ep/day-2.html"
+         style="background: hsl(211 34% 90%)"
+         data-t="Day 2 · 行图像 vs 列图像"
+         aria-label="Day 2 行图像 vs 列图像"></a>
+      <a class="cell course"
+         href="ep/day-3.html"
+         style="background: hsl(222 34% 90%)"
+         data-t="Day 3 · 线性代数核心思想综述"
+         aria-label="Day 3 线性代数核心思想综述"></a>
+      <a class="cell course"
+         href="ep/day-5.html"
+         style="background: hsl(227 34% 90%)"
+         data-t="Day 5 · 矩阵乘法与逆矩阵"
+         aria-label="Day 5 矩阵乘法与逆矩阵"></a>
+      <a class="cell course"
+         href="ep/day-6.html"
+         style="background: hsl(228 34% 90%)"
+         data-t="Day 6 · 后悔药"
+         aria-label="Day 6 后悔药"></a>
+      <a class="cell course"
+         href="ep/day-7.html"
+         style="background: hsl(224 34% 90%)"
+         data-t="Day 7 · 转置、置换、向量空间 R^n"
+         aria-label="Day 7 转置、置换、向量空间 R^n"></a>
+      <a class="cell course"
+         href="ep/day-8.html"
+         style="background: hsl(222 34% 90%)"
+         data-t="Day 8 · 列空间与零空间"
+         aria-label="Day 8 列空间与零空间"></a>
+      <a class="cell course"
+         href="ep/day-9.html"
+         style="background: hsl(213 34% 90%)"
+         data-t="Day 9 · 求解 Ax=0"
+         aria-label="Day 9 求解 Ax=0"></a>
+      <a class="cell course"
+         href="ep/day-10.html"
+         style="background: hsl(223 34% 90%)"
+         data-t="Day 10 · 求解 Ax=b"
+         aria-label="Day 10 求解 Ax=b"></a>
+      <a class="cell course"
+         href="ep/day-11.html"
+         style="background: hsl(230 34% 90%)"
+         data-t="Day 11 · 线性无关、基、维数"
+         aria-label="Day 11 线性无关、基、维数"></a>
+      <a class="cell course"
+         href="ep/day-12.html"
+         style="background: hsl(228 69% 73%)"
+         data-t="Day 12 · 横跨两个世界的四间房"
+         aria-label="Day 12 横跨两个世界的四间房"></a>
+      <a class="cell course"
+         href="ep/day-13.html"
+         style="background: hsl(206 34% 90%)"
+         data-t="Day 13 · 矩阵空间、秩1矩阵、小世界图"
+         aria-label="Day 13 矩阵空间、秩1矩阵、小世界图"></a>
+      <a class="cell course"
+         href="ep/day-14.html"
+         style="background: hsl(218 34% 90%)"
+         data-t="Day 14 · 图、网络与关联矩阵"
+         aria-label="Day 14 图、网络与关联矩阵"></a>
+      <a class="cell course"
+         href="ep/day-15.html"
+         style="background: hsl(206 34% 90%)"
+         data-t="Day 15 · 第一单元的终极秘密"
+         aria-label="Day 15 第一单元的终极秘密"></a>
+      <a class="cell course"
+         href="ep/day-16.html"
+         style="background: hsl(225 34% 90%)"
+         data-t="Day 16 · 第一单元考试"
+         aria-label="Day 16 第一单元考试"></a>
+      <a class="cell course"
+         href="ep/day-17.html"
+         style="background: hsl(221 34% 90%)"
+         data-t="Day 17 · 正交向量与子空间"
+         aria-label="Day 17 正交向量与子空间"></a>
+      <a class="cell course"
+         href="ep/day-20.html"
+         style="background: hsl(211 34% 90%)"
+         data-t="Day 20 · 正交矩阵与 Gram-Schmidt 正交化"
+         aria-label="Day 20 正交矩阵与 Gram-Schmidt 正交化"></a>
+      <a class="cell course"
+         href="ep/day-21.html"
+         style="background: hsl(206 34% 90%)"
+         data-t="Day 21 · 行列式的性质"
+         aria-label="Day 21 行列式的性质"></a>
+      <a class="cell course"
+         href="ep/day-22.html"
+         style="background: hsl(226 34% 90%)"
+         data-t="Day 22 · 行列式公式与代数余子式"
+         aria-label="Day 22 行列式公式与代数余子式"></a>
+      <a class="cell course"
+         href="ep/day-23.html"
+         style="background: hsl(222 34% 90%)"
+         data-t="Day 23 · 克莱姆法则、逆矩阵、体积"
+         aria-label="Day 23 克莱姆法则、逆矩阵、体积"></a>
+      <a class="cell course"
+         href="ep/day-24.html"
+         style="background: hsl(227 34% 90%)"
+         data-t="Day 24 · 特征值与特征向量"
+         aria-label="Day 24 特征值与特征向量"></a>
+      <a class="cell course"
+         href="ep/day-25.html"
+         style="background: hsl(230 34% 90%)"
+         data-t="Day 25 · 对角化和 A 的幂"
+         aria-label="Day 25 对角化和 A 的幂"></a>
+      <a class="cell course"
+         href="ep/day-26.html"
+         style="background: hsl(206 34% 90%)"
+         data-t="Day 26 · 微分方程与矩阵指数 exp(At)"
+         aria-label="Day 26 微分方程与矩阵指数 exp(At)"></a>
+      <a class="cell course"
+         href="ep/day-27.html"
+         style="background: hsl(209 34% 90%)"
+         data-t="Day 27 · 马尔可夫矩阵 × 傅里叶级数"
+         aria-label="Day 27 马尔可夫矩阵 × 傅里叶级数"></a>
+      <a class="cell course"
+         href="ep/day-28.html"
+         style="background: hsl(224 34% 90%)"
+         data-t="Day 28 · 一个行列式跳出的六步圆舞曲"
+         aria-label="Day 28 一个行列式跳出的六步圆舞曲"></a>
+      <a class="cell course"
+         href="ep/day-29.html"
+         style="background: hsl(229 34% 90%)"
+         data-t="Day 29 · 投票机制"
+         aria-label="Day 29 投票机制"></a>
+      <a class="cell course"
+         href="ep/day-30.html"
+         style="background: hsl(224 34% 90%)"
+         data-t="Day 30 · 对称矩阵与正定性"
+         aria-label="Day 30 对称矩阵与正定性"></a>
+      <a class="cell course"
+         href="ep/day-31.html"
+         style="background: hsl(216 34% 90%)"
+         data-t="Day 31 · 复数矩阵与FFT"
+         aria-label="Day 31 复数矩阵与FFT"></a>
+      <a class="cell course"
+         href="ep/day-32.html"
+         style="background: hsl(220 34% 90%)"
+         data-t="Day 32 · 正定矩阵与最小值"
+         aria-label="Day 32 正定矩阵与最小值"></a>
+      <a class="cell course"
+         href="ep/day-33.html"
+         style="background: hsl(215 34% 90%)"
+         data-t="Day 33 · 相似矩阵与 Jordan 标准型"
+         aria-label="Day 33 相似矩阵与 Jordan 标准型"></a>
+      <a class="cell course"
+         href="ep/day-34.html"
+         style="background: hsl(210 34% 90%)"
+         data-t="Day 34 · 奇异值分解 SVD"
+         aria-label="Day 34 奇异值分解 SVD"></a>
+      <a class="cell course"
+         href="ep/day-35.html"
+         style="background: hsl(218 34% 90%)"
+         data-t="Day 35 · 马甲"
+         aria-label="Day 35 马甲"></a>
+      <a class="cell course"
+         href="ep/day-36.html"
+         style="background: hsl(210 34% 90%)"
+         data-t="Day 36 · 基变换与图像压缩"
+         aria-label="Day 36 基变换与图像压缩"></a>
+      <a class="cell course"
+         href="ep/day-37.html"
+         style="background: hsl(216 34% 90%)"
+         data-t="Day 37 · 不可能"
+         aria-label="Day 37 不可能"></a>
+      <a class="cell course"
+         href="ep/day-38.html"
+         style="background: hsl(219 34% 90%)"
+         data-t="Day 38 · 第三单元复习"
+         aria-label="Day 38 第三单元复习"></a>
+      <a class="cell course"
+         href="ep/day-39.html"
+         style="background: hsl(213 34% 90%)"
+         data-t="Day 39 · 第三单元考试（最终回）"
+         aria-label="Day 39 第三单元考试（最终回）"></a>
+      <a class="cell extra"
+         href="ep/vol-1.html"
+         style="background: hsl(270 34% 90%)"
+         data-t="Vol.1 · 你的密码可能是一道矩阵乘法"
+         aria-label="Vol.1 你的密码可能是一道矩阵乘法"></a>
+      <a class="cell extra"
+         href="ep/vol-2.html"
+         style="background: hsl(261 34% 90%)"
+         data-t="Vol.2 · 打包"
+         aria-label="Vol.2 打包"></a>
+      <a class="cell extra"
+         href="ep/vol-3.html"
+         style="background: hsl(263 34% 90%)"
+         data-t="Vol.3 · 先穿袜子再穿鞋，先脱鞋再脱袜子"
+         aria-label="Vol.3 先穿袜子再穿鞋，先脱鞋再脱袜子"></a>
+      <a class="cell extra"
+         href="ep/vol-4.html"
+         style="background: hsl(254 34% 90%)"
+         data-t="Vol.4 · 顺序是有分量的"
+         aria-label="Vol.4 顺序是有分量的"></a>
+      <a class="cell extra"
+         href="ep/vol-5.html"
+         style="background: hsl(268 34% 90%)"
+         data-t="Vol.5 · 单次测量会骗人，趋势线才说真话"
+         aria-label="Vol.5 单次测量会骗人，趋势线才说真话"></a>
+      <a class="cell extra"
+         href="ep/vol-6.html"
+         style="background: hsl(275 34% 90%)"
+         data-t="Vol.6 · 一个数字，装着一个歪箱子的体积"
+         aria-label="Vol.6 一个数字，装着一个歪箱子的体积"></a>
+      <a class="cell extra"
+         href="ep/vol-7.html"
+         style="background: hsl(270 34% 90%)"
+         data-t="Vol.7 · 你搜一个品牌名，官网为什么永远排第一"
+         aria-label="Vol.7 你搜一个品牌名，官网为什么永远排第一"></a>
+      <a class="cell extra"
+         href="ep/vol-8.html"
+         style="background: hsl(266 34% 90%)"
+         data-t="Vol.8 · 审计日志"
+         aria-label="Vol.8 审计日志"></a>
+      <a class="cell extra"
+         href="ep/vol-9.html"
+         style="background: hsl(267 34% 90%)"
+         data-t="Vol.9 · 转90°的操作，数学家用虚数来记账"
+         aria-label="Vol.9 转90°的操作，数学家用虚数来记账"></a>
+      <a class="cell extra"
+         href="ep/vol-10.html"
+         style="background: hsl(274 34% 90%)"
+         data-t="Vol.10 · 换个视角，数据就显形"
+         aria-label="Vol.10 换个视角，数据就显形"></a>
+      <a class="cell extra"
+         href="ep/vol-11.html"
+         style="background: hsl(264 34% 90%)"
+         data-t="Vol.11 · 兔子生兔子的故事里藏着一个黄金数字"
+         aria-label="Vol.11 兔子生兔子的故事里藏着一个黄金数字"></a>
+      <a class="cell extra"
+         href="ep/vol-12.html"
+         style="background: hsl(270 34% 90%)"
+         data-t="Vol.12 · 热咖啡为什么会自己变凉"
+         aria-label="Vol.12 热咖啡为什么会自己变凉"></a>
+      <a class="cell extra"
+         href="ep/vol-13.html"
+         style="background: hsl(253 34% 90%)"
+         data-t="Vol.13 · 把歪的掰正"
+         aria-label="Vol.13 把歪的掰正"></a>
+      <a class="cell extra"
+         href="ep/vol-14.html"
+         style="background: hsl(275 34% 90%)"
+         data-t="Vol.14 · 同一台电脑，三个名字：换马甲不换本质"
+         aria-label="Vol.14 同一台电脑，三个名字：换马甲不换本质"></a>
+      <a class="cell extra"
+         href="ep/vol-15.html"
+         style="background: hsl(256 34% 90%)"
+         data-t="Vol.15 · 一个矩阵乘自己1001次居然原样回来"
+         aria-label="Vol.15 一个矩阵乘自己1001次居然原样回来"></a>
+      <a class="cell extra"
+         href="ep/vol-16.html"
+         style="background: hsl(251 34% 90%)"
+         data-t="Vol.16 · 你手机里的照片都被数学&#39;精简&#39;过一遍"
+         aria-label="Vol.16 你手机里的照片都被数学&#39;精简&#39;过一遍"></a>
+      <a class="cell extra"
+         href="ep/vol-17.html"
+         style="background: hsl(253 34% 90%)"
+         data-t="Vol.17 · 函数也是向量"
+         aria-label="Vol.17 函数也是向量"></a>
+      <a class="cell extra"
+         href="ep/vol-18.html"
+         style="background: hsl(250 34% 90%)"
+         data-t="Vol.18 · n维的开口朝上"
+         aria-label="Vol.18 n维的开口朝上"></a>
+      <a class="cell extra"
+         href="ep/vol-19.html"
+         style="background: hsl(276 47% 63%)"
+         data-t="Vol.19 · 一整座电网，被压缩成只有 −1、0、1 的表格"
+         aria-label="Vol.19 一整座电网，被压缩成只有 −1、0、1 的表格"></a>
+      <a class="cell extra"
+         href="ep/vol-20.html"
+         style="background: hsl(247 34% 90%)"
+         data-t="Vol.20 · 无解的方程，数学家给它造了个最佳替身逆"
+         aria-label="Vol.20 无解的方程，数学家给它造了个最佳替身逆"></a>
+      <a class="cell extra"
+         href="ep/vol-21.html"
+         style="background: hsl(254 34% 90%)"
+         data-t="Vol.21 · 同一个 AB，四种算法四种故事，第 4 种连老师都很少讲"
+         aria-label="Vol.21 同一个 AB，四种算法四种故事，第 4 种连老师都很少讲"></a>
+      <a class="cell extra"
+         href="ep/vol-22.html"
+         style="background: hsl(254 34% 90%)"
+         data-t="Vol.22 · 同一个矩阵，换一种乘的顺序，计算量从 1.1 万亿掉到 1050 万"
+         aria-label="Vol.22 同一个矩阵，换一种乘的顺序，计算量从 1.1 万亿掉到 1050 万"></a>
+      <a class="cell extra"
+         href="ep/vol-23.html"
+         style="background: hsl(267 46% 51%)"
+         data-t="Vol.23 · 世界最重要的矩阵，长着一张对称的脸"
+         aria-label="Vol.23 世界最重要的矩阵，长着一张对称的脸"></a>
+    </div>
+  </section>
+
+  <section class="list-sec">
+    <div class="group-title">课程日 · Day 1–39</div>
+    <a class="card is-draft" href="ep/day-1.html">
+      <span class="idx">D01</span>
+      <span class="body">
+        <span class="t">单元总述</span>
+        <span class="m">
+<span>线性代数概览</span><span class="dot">·</span>          <span>2026-06-05</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-2.html">
+      <span class="idx">D02</span>
+      <span class="body">
+        <span class="t">行图像 vs 列图像</span>
+        <span class="m">
+<span>线性方程的几何理解</span><span class="dot">·</span>          <span>2026-06-08</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-3.html">
+      <span class="idx">D03</span>
+      <span class="body">
+        <span class="t">线性代数核心思想综述</span>
+        <span class="m">
+<span>同一个三个向量，两个截然不同的矩阵</span><span class="dot">·</span>          <span>2026-06-09</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-5.html">
+      <span class="idx">D05</span>
+      <span class="body">
+        <span class="t">矩阵乘法与逆矩阵</span>
+        <span class="m">
+<span>矩阵乘法不是只有一种看法</span><span class="dot">·</span>          <span>2026-06-17</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-6.html">
+      <span class="idx">D06</span>
+      <span class="body">
+        <span class="t">后悔药</span>
+        <span class="m">
+<span>LU分解 — 消元法的</span><span class="dot">·</span>          <span>2026-06-18</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-7.html">
+      <span class="idx">D07</span>
+      <span class="body">
+        <span class="t">转置、置换、向量空间 R^n</span>
+        <span class="m">
+          <span>2026-06-19</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-8.html">
+      <span class="idx">D08</span>
+      <span class="body">
+        <span class="t">列空间与零空间</span>
+        <span class="m">
+<span>同一个矩阵的两个互补视角</span><span class="dot">·</span>          <span>2026-06-23</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-9.html">
+      <span class="idx">D09</span>
+      <span class="body">
+        <span class="t">求解 Ax=0</span>
+        <span class="m">
+<span>自由变量的人生哲学</span><span class="dot">·</span>          <span>2026-06-24</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-10.html">
+      <span class="idx">D10</span>
+      <span class="body">
+        <span class="t">求解 Ax=b</span>
+        <span class="m">
+<span>特解 + 零空间 = 通解</span><span class="dot">·</span>          <span>2026-06-25</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-11.html">
+      <span class="idx">D11</span>
+      <span class="body">
+        <span class="t">线性无关、基、维数</span>
+        <span class="m">
+          <span>2026-06-26</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card " href="ep/day-12.html">
+      <span class="idx">D12</span>
+      <span class="body">
+        <span class="t">横跨两个世界的四间房</span>
+        <span class="m">
+<span>四个基本子空间</span><span class="dot">·</span>          <span>2026-06-29</span>
+<span class="dot">·</span><span>3 min</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-13.html">
+      <span class="idx">D13</span>
+      <span class="body">
+        <span class="t">矩阵空间、秩1矩阵、小世界图</span>
+        <span class="m">
+<span>矩阵就是积木</span><span class="dot">·</span>          <span>2026-06-30</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-14.html">
+      <span class="idx">D14</span>
+      <span class="body">
+        <span class="t">图、网络与关联矩阵</span>
+        <span class="m">
+<span>你画的每一个圈圈都是一套矩阵</span><span class="dot">·</span>          <span>2026-07-01</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-15.html">
+      <span class="idx">D15</span>
+      <span class="body">
+        <span class="t">第一单元的终极秘密</span>
+        <span class="m">
+<span>一个数字 r 统治一切</span><span class="dot">·</span>          <span>2026-07-02</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-16.html">
+      <span class="idx">D16</span>
+      <span class="body">
+        <span class="t">第一单元考试</span>
+        <span class="m">
+<span>考试题里的读心术</span><span class="dot">·</span>          <span>2026-07-03</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-17.html">
+      <span class="idx">D17</span>
+      <span class="body">
+        <span class="t">正交向量与子空间</span>
+        <span class="m">
+<span>你的房间其实是个线性代数教室</span><span class="dot">·</span>          <span>2026-07-06</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-20.html">
+      <span class="idx">D20</span>
+      <span class="body">
+        <span class="t">正交矩阵与 Gram-Schmidt 正交化</span>
+        <span class="m">
+<span>把歪的掰正</span><span class="dot">·</span>          <span>2026-07-07</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-21.html">
+      <span class="idx">D21</span>
+      <span class="body">
+        <span class="t">行列式的性质</span>
+        <span class="m">
+<span>矩阵的DNA</span><span class="dot">·</span>          <span>2026-07-08</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-22.html">
+      <span class="idx">D22</span>
+      <span class="body">
+        <span class="t">行列式公式与代数余子式</span>
+        <span class="m">
+<span>三种计算一个神秘数字的方法</span><span class="dot">·</span>          <span>2026-07-09</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-23.html">
+      <span class="idx">D23</span>
+      <span class="body">
+        <span class="t">克莱姆法则、逆矩阵、体积</span>
+        <span class="m">
+<span>行列式=体积！数学在跟你开玩笑</span><span class="dot">·</span>          <span>2026-07-10</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-24.html">
+      <span class="idx">D24</span>
+      <span class="body">
+        <span class="t">特征值与特征向量</span>
+        <span class="m">
+<span>矩阵的灵魂开关</span><span class="dot">·</span>          <span>2026-07-13</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-25.html">
+      <span class="idx">D25</span>
+      <span class="body">
+        <span class="t">对角化和 A 的幂</span>
+        <span class="m">
+<span>矩阵对角化 + 斐波那契数列</span><span class="dot">·</span>          <span>2026-07-14</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-26.html">
+      <span class="idx">D26</span>
+      <span class="body">
+        <span class="t">微分方程与矩阵指数 exp(At)</span>
+        <span class="m">
+<span>耦合系统的解耦魔法</span><span class="dot">·</span>          <span>2026-07-15</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-27.html">
+      <span class="idx">D27</span>
+      <span class="body">
+        <span class="t">马尔可夫矩阵 × 傅里叶级数</span>
+        <span class="m">
+<span>稳态的魔法 &amp; 函数的正交</span><span class="dot">·</span>          <span>2026-07-16</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-28.html">
+      <span class="idx">D28</span>
+      <span class="body">
+        <span class="t">一个行列式跳出的六步圆舞曲</span>
+        <span class="m">
+<span>递推行列式→伴侣矩阵→特征值在单位圆上→周期6</span><span class="dot">·</span>          <span>2026-07-17</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-29.html">
+      <span class="idx">D29</span>
+      <span class="body">
+        <span class="t">投票机制</span>
+        <span class="m">
+<span>孤零零的尖峰与最小二乘的</span><span class="dot">·</span>          <span>2026-07-20</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-30.html">
+      <span class="idx">D30</span>
+      <span class="body">
+        <span class="t">对称矩阵与正定性</span>
+        <span class="m">
+<span>镜子、碗和正定能量的三重奏</span><span class="dot">·</span>          <span>2026-07-21</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-31.html">
+      <span class="idx">D31</span>
+      <span class="body">
+        <span class="t">复数矩阵与FFT</span>
+        <span class="m">
+<span>一万倍加速的魔法</span><span class="dot">·</span>          <span>2026-07-22</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-32.html">
+      <span class="idx">D32</span>
+      <span class="body">
+        <span class="t">正定矩阵与最小值</span>
+        <span class="m">
+<span>碗、能量和最小值的秘密</span><span class="dot">·</span>          <span>2026-07-23</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-33.html">
+      <span class="idx">D33</span>
+      <span class="body">
+        <span class="t">相似矩阵与 Jordan 标准型</span>
+        <span class="m">
+<span>矩阵界的独孤求败</span><span class="dot">·</span>          <span>2026-07-24</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-34.html">
+      <span class="idx">D34</span>
+      <span class="body">
+        <span class="t">奇异值分解 SVD</span>
+        <span class="m">
+<span>矩阵界的终极分解</span><span class="dot">·</span>          <span>2026-07-27</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-35.html">
+      <span class="idx">D35</span>
+      <span class="body">
+        <span class="t">马甲</span>
+        <span class="m">
+<span>线性变换及其矩阵表示 — 矩阵只是线性变换的</span><span class="dot">·</span>          <span>2026-07-28</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-36.html">
+      <span class="idx">D36</span>
+      <span class="body">
+        <span class="t">基变换与图像压缩</span>
+        <span class="m">
+<span>你发的每一张照片，都在偷偷做线性代数</span><span class="dot">·</span>          <span>2026-07-29</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-37.html">
+      <span class="idx">D37</span>
+      <span class="body">
+        <span class="t">不可能</span>
+        <span class="m">
+<span>左右逆与伪逆 — 最接近</span><span class="dot">·</span>          <span>2026-07-30</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-38.html">
+      <span class="idx">D38</span>
+      <span class="body">
+        <span class="t">第三单元复习</span>
+        <span class="m">
+<span>永远振荡的矩阵 &amp; 既对称又正交的魔法</span><span class="dot">·</span>          <span>2026-07-31</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card is-draft" href="ep/day-39.html">
+      <span class="idx">D39</span>
+      <span class="body">
+        <span class="t">第三单元考试（最终回）</span>
+        <span class="m">
+<span>矩阵的体检报告：奇异值全=1 读心术</span><span class="dot">·</span>          <span>2026-08-03</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+
+    <div class="group-title">番外篇 · Vol.1–23</div>
+    <a class="card extra is-draft" href="ep/vol-1.html">
+      <span class="idx">V01</span>
+      <span class="body">
+        <span class="t">你的密码可能是一道矩阵乘法</span>
+        <span class="m">
+<span>加密=乘秘密矩阵E，解密=乘逆矩阵E⁻¹；命门=可逆性；mod p 有限域里线代照常成立</span><span class="dot">·</span>          <span>2026-08-06</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-2.html">
+      <span class="idx">V02</span>
+      <span class="body">
+        <span class="t">打包</span>
+        <span class="m">
+<span>苹果和橙子不能相加——向量的</span><span class="dot">·</span>          <span>2026-08-13</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-3.html">
+      <span class="idx">V03</span>
+      <span class="body">
+        <span class="t">先穿袜子再穿鞋，先脱鞋再脱袜子</span>
+        <span class="m">
+<span>逆序定律</span><span class="dot">·</span>          <span>2026-08-14</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-4.html">
+      <span class="idx">V04</span>
+      <span class="body">
+        <span class="t">顺序是有分量的</span>
+        <span class="m">
+<span>AB ≠ BA 顺序定律</span><span class="dot">·</span>          <span>2026-08-17</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-5.html">
+      <span class="idx">V05</span>
+      <span class="body">
+        <span class="t">单次测量会骗人，趋势线才说真话</span>
+        <span class="m">
+<span>最小二乘与投影</span><span class="dot">·</span>          <span>2026-08-18</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-6.html">
+      <span class="idx">V06</span>
+      <span class="body">
+        <span class="t">一个数字，装着一个歪箱子的体积</span>
+        <span class="m">
+<span>行列式 = 体积</span><span class="dot">·</span>          <span>2026-08-19</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-7.html">
+      <span class="idx">V07</span>
+      <span class="body">
+        <span class="t">你搜一个品牌名，官网为什么永远排第一</span>
+        <span class="m">
+<span>特征向量 &amp; PageRank</span><span class="dot">·</span>          <span>2026-08-20</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-8.html">
+      <span class="idx">V08</span>
+      <span class="body">
+        <span class="t">审计日志</span>
+        <span class="m">
+<span>LU 分解 = 消元的</span><span class="dot">·</span>          <span>2026-08-21</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-9.html">
+      <span class="idx">V09</span>
+      <span class="body">
+        <span class="t">转90°的操作，数学家用虚数来记账</span>
+        <span class="m">
+<span>旋转矩阵 × 复数 × 欧拉公式</span><span class="dot">·</span>          <span>2026-08-24</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-10.html">
+      <span class="idx">V10</span>
+      <span class="body">
+        <span class="t">换个视角，数据就显形</span>
+        <span class="m">
+<span>转置 Aᵀ</span><span class="dot">·</span>          <span>2026-08-25</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-11.html">
+      <span class="idx">V11</span>
+      <span class="body">
+        <span class="t">兔子生兔子的故事里藏着一个黄金数字</span>
+        <span class="m">
+<span>斐波那契 × 黄金比例 × 矩阵的幂</span><span class="dot">·</span>          <span>2026-08-26</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-12.html">
+      <span class="idx">V12</span>
+      <span class="body">
+        <span class="t">热咖啡为什么会自己变凉</span>
+        <span class="m">
+<span>微分方程与矩阵指数 du/dt=Au</span><span class="dot">·</span>          <span>2026-08-27</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-13.html">
+      <span class="idx">V13</span>
+      <span class="body">
+        <span class="t">把歪的掰正</span>
+        <span class="m">
+<span>Gram-Schmidt 正交化</span><span class="dot">·</span>          <span>2026-08-28</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-14.html">
+      <span class="idx">V14</span>
+      <span class="body">
+        <span class="t">同一台电脑，三个名字：换马甲不换本质</span>
+        <span class="m">
+<span>相似矩阵</span><span class="dot">·</span>          <span>2026-08-31</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-15.html">
+      <span class="idx">V15</span>
+      <span class="body">
+        <span class="t">一个矩阵乘自己1001次居然原样回来</span>
+        <span class="m">
+<span>A¹⁰⁰¹ = A</span><span class="dot">·</span>          <span>2026-09-01</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-16.html">
+      <span class="idx">V16</span>
+      <span class="body">
+        <span class="t">你手机里的照片都被数学&#39;精简&#39;过一遍</span>
+        <span class="m">
+<span>图像压缩=线性代数</span><span class="dot">·</span>          <span>2026-09-02</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-17.html">
+      <span class="idx">V17</span>
+      <span class="body">
+        <span class="t">函数也是向量</span>
+        <span class="m">
+<span>傅里叶级数=</span><span class="dot">·</span>          <span>2026-09-03</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-18.html">
+      <span class="idx">V18</span>
+      <span class="body">
+        <span class="t">n维的开口朝上</span>
+        <span class="m">
+<span>正定矩阵=</span><span class="dot">·</span>          <span>2026-09-04</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra " href="ep/vol-19.html">
+      <span class="idx">V19</span>
+      <span class="body">
+        <span class="t">一整座电网，被压缩成只有 −1、0、1 的表格</span>
+        <span class="m">
+<span>图与网络 · 关联矩阵</span><span class="dot">·</span>          <span>2026-09-07</span>
+<span class="dot">·</span><span>4 min</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-20.html">
+      <span class="idx">V20</span>
+      <span class="body">
+        <span class="t">无解的方程，数学家给它造了个最佳替身逆</span>
+        <span class="m">
+<span>伪逆 Moore–Penrose A⁺</span><span class="dot">·</span>          <span>2026-09-08</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-21.html">
+      <span class="idx">V21</span>
+      <span class="body">
+        <span class="t">同一个 AB，四种算法四种故事，第 4 种连老师都很少讲</span>
+        <span class="m">
+<span>矩阵乘法的四种视角</span><span class="dot">·</span>          <span>2026-09-09</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra is-draft" href="ep/vol-22.html">
+      <span class="idx">V22</span>
+      <span class="body">
+        <span class="t">同一个矩阵，换一种乘的顺序，计算量从 1.1 万亿掉到 1050 万</span>
+        <span class="m">
+<span>快速傅里叶变换 FFT</span><span class="dot">·</span>          <span>2026-09-10</span>
+<span class="dot">·</span><span class="draft-tag">整理中</span>        </span>
+      </span>
+    </a>
+    <a class="card extra " href="ep/vol-23.html">
+      <span class="idx">V23</span>
+      <span class="body">
+        <span class="t">世界最重要的矩阵，长着一张对称的脸</span>
+        <span class="m">
+<span>对称矩阵与谱定理</span><span class="dot">·</span>          <span>2026-09-11</span>
+<span class="dot">·</span><span>4 min</span>        </span>
+      </span>
+    </a>
+  </section>
+
+</div>
+
+<div class="tip" id="tip"></div>
+
+<div class="foot">
+  <div class="wrap">
+    内容基于 Gilbert Strang《Introduction to Linear Algebra》(5th Edition) 与 MIT 18.06 公开课整理。
+    教材原文引用仅用于学习与评论，版权归原作者及出版方所有。<br>
+    本站为个人学习笔记项目，与 MIT 及原作者无隶属关系。
+  </div>
+</div>
+
+<script>
+(function () {
+  var tip = document.getElementById('tip');
+  document.querySelectorAll('.cell').forEach(function (c) {
+    c.addEventListener('mouseenter', function () {
+      tip.textContent = c.dataset.t;
+      tip.classList.add('on');
+    });
+    c.addEventListener('mousemove', function (ev) {
+      var x = ev.clientX + 14, y = ev.clientY + 16;
+      if (x + tip.offsetWidth > window.innerWidth - 10) x = ev.clientX - tip.offsetWidth - 14;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    });
+    c.addEventListener('mouseleave', function () { tip.classList.remove('on'); });
+  });
+})();
+</script>
+</body>
+</html>

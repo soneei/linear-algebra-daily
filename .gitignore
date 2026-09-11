@@ -1,0 +1,12 @@
+# 原始教材、课程视频等版权材料 —— 绝不入库
+*.pdf
+*.zip
+*.epub
+*.mobi
+
+# 系统与缓存
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+venv/

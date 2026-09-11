@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横跨两个世界的四间房 · 人话线性代数</title>
+<meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
+<meta property="og:title" content="横跨两个世界的四间房">
+<meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-brand" href="../index.html">人话线性代数</a>
+    <div class="nav-spacer"></div>
+<a class="nav-link" href="../index.html">← 全部</a>
+    <a class="nav-link" href="https://github.com/soneei/linear-algebra-daily" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="ep-head">
+    <div class="eyebrow">Day 12 · 第一单元 · 2026-06-29</div>
+    <h1>横跨两个世界的四间房</h1>
+    <div class="tags">
+<span class="tag">秩</span><span class="tag">子空间</span><span class="tag">秩定理</span>    </div>
+  </header>
+
+
+  <div class="hook">一个 m×n 的矩阵，同时住在两个宇宙里——它在 Rⁿ 和 Rᵐ 各占了两间房。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>想象老张有套房子，横跨两个世界。</p><p>在 Rⁿ 那一侧（输入的宇宙），他有两间房：<b>行空间</b>，维度 r；<b>零空间</b>，维度 n − r。</p><p>在 Rᵐ 那一侧（输出的宇宙），他还有两间房：<b>列空间</b>，维度 r；<b>左零空间</b>，维度 m − r。</p><p>四个维度摆在一起：r、n−r、r、m−r。每一侧的两间房加起来，恰好铺满整个空间——一个不多，一个不少。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">列空间和行空间，维度居然一样</span>
+      <div>两侧的房间数都是 r。这就是<b>秩定理</b>的全部内容：独立列数 = 独立行数。一个矩阵无论长得多扁多瘦，它的「独立方向数」横向纵向都是一个数。这件事反直觉到 Strang 专门用一节课强调。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">完美对称的一笔账</span>
+      <div>r + (n − r) = n，同时 r + (m − r) = m。输入空间被两间房铺满，输出空间也被两间房铺满。整个线性代数最优雅的一处结构，就写在这两行加减法里。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">左零空间是那个被忽略的房间</span>
+      <div>大多数人只记得前三个子空间，把左零空间跳过去。Strang 的提醒是：跳过它「that misses the beauty of the whole subject」——你就错过了整个学科最美的那一块。</div>
+    </div>
+  </div>
+
+  <div class="fx">
+    <div class="lb">基本定理（第一部分）</div>
+    <div class="fr">dim C(A) = dim C(Aᵀ) = r</div>
+<div class="nt">秩 r 是这四个子空间的唯一参数。知道 r，就知道全部四间房的面积。另一个恒等式：dim N(A) + dim C(Aᵀ) = n。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">为什么左零空间叫「左」</span>
+      <div>因为它是 Aᵀ 的零空间，也就是 A 左边乘一个向量等于 0：yᵀA = 0ᵀ。字面上就是「从左边乘进去为零的那些 y」。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “Stay with it—you are doing real mathematics.”
+    <span class="by">— Gilbert Strang · §3.5 Dimensions of the Four Subspaces</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §3.5 Dimensions of the Four Subspaces</span>
+    pp. 181–186
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>四个子空间里，只有零空间和左零空间是「解不出来」的方向——它们代表了信息在变换中丢失的部分。</p><p>一个很实用的提问方式：当你的模型「反推不回去」的时候，丢失的信息到底住在哪间房里？如果是零空间，说明输入里有东西对输出毫无影响（可以整批删掉）；如果是左零空间，说明输出里有目标根本不可达（条件永远凑不齐）。</p>  </div>
+
+  <nav class="ep-foot">
+    <a class="pn prev" href="day-11.html">
+      <span class="d">上一期</span>Day 11 · 线性无关、基、维数
+    </a>
+    <a class="pn next" href="day-13.html">
+      <span class="d">下一期</span>Day 13 · 矩阵空间、秩1矩阵、小世界图
+    </a>
+  </nav>
+
+
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    内容基于 Gilbert Strang《Introduction to Linear Algebra》(5th Edition) 与 MIT 18.06 公开课整理。
+    教材原文引用仅用于学习与评论，版权归原作者及出版方所有。<br>
+    本站为个人学习笔记项目，与 MIT 及原作者无隶属关系。
+  </div>
+</div>
+
+</body>
+</html>

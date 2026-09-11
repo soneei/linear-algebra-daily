@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}{{ ep.title }} · {{ meta.title }}{% endblock %}
+{% block ogtitle %}{{ ep.title }}{% endblock %}
+
+{% block navright %}
+<a class="nav-link" href="{{ root }}index.html">← 全部</a>
+{% endblock %}
+
+{% block content %}
+<div class="wrap">
+
+  <header class="ep-head">
+    <div class="eyebrow">{{ ep.label }} · {{ ep.unit }} · {{ ep.date }}</div>
+    <h1>{{ ep.title }}</h1>
+    <div class="tags">
+      {% for t in ep.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      {% if ep.status == 'draft' %}<span class="tag tag-draft">整理中</span>{% endif %}
+    </div>
+  </header>
+
+{% if ep.status == 'draft' %}
+
+  <div class="blk blk-pending">
+    <span class="blk-h">这一期的正文还在整理</span>
+    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
+    {% if ep.topic and ep.topic != ep.title %}
+    <p class="pn-topic"><span class="lb">主题</span>{{ ep.topic }}</p>
+    {% endif %}
+  </div>
+
+  <nav class="ep-foot">
+    {% if prev %}<a class="pn prev" href="{{ prev.id }}.html"><span class="d">上一期</span>{{ prev.label }} · {{ prev.title }}</a>{% endif %}
+    {% if next %}<a class="pn next" href="{{ next.id }}.html"><span class="d">下一期</span>{{ next.label }} · {{ next.title }}</a>{% endif %}
+  </nav>
+
+{% else %}
+
+  <div class="hook">{{ ep.hook }}</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+    {% for p in ep.story %}<p>{{ p|safe }}</p>{% endfor %}
+  </div>
+
+  {% if ep.insight %}
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    {% for it in ep.insight %}
+    <div class="ins-item">
+      <span class="it">{{ it.title }}</span>
+      <div>{{ it.body|safe }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if ep.math %}
+  {% for m in ep.math %}
+  <div class="fx">
+    <div class="lb">{{ m.label }}</div>
+    <div class="fr">{{ m.formula }}</div>
+    {% if m.note %}<div class="nt">{{ m.note|safe }}</div>{% endif %}
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  {% if ep.trivia %}
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    {% for t in ep.trivia %}
+    <div class="ins-item">
+      <span class="it">{{ t.title }}</span>
+      <div>{{ t.body|safe }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if ep.quote %}
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “{{ ep.quote.text }}”
+    <span class="by">— {{ ep.quote.by }}{% if ep.quote.src %} · {{ ep.quote.src }}{% endif %}</span>
+  </div>
+  {% endif %}
+
+  {% if ep.source %}
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">{{ ep.source.book }} · {{ ep.source.section }}</span>
+    {{ ep.source.pages }}
+  </div>
+  {% endif %}
+
+  {% if ep.think %}
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+    {% for p in ep.think.split('\n') %}{% if p.strip() %}<p>{{ p|safe }}</p>{% endif %}{% endfor %}
+  </div>
+  {% endif %}
+
+  <nav class="ep-foot">
+    {% if prev %}
+    <a class="pn prev" href="{{ prev.id }}.html">
+      <span class="d">上一期</span>{{ prev.label }} · {{ prev.title }}
+    </a>
+    {% endif %}
+    {% if next %}
+    <a class="pn next" href="{{ next.id }}.html">
+      <span class="d">下一期</span>{{ next.label }} · {{ next.title }}
+    </a>
+    {% endif %}
+  </nav>
+
+{% endif %}
+
+</div>
+{% endblock %}

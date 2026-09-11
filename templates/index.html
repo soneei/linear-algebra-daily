@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}{{ meta.title }} · {{ meta.subtitle }}{% endblock %}
+
+{% block content %}
+<div class="wrap">
+
+  <header class="hero">
+    <h1>把线代课<br>从公式堆里<span class="accent">捞出来</span></h1>
+    <p class="lede">{{ meta.description }}</p>
+    <div class="stats">
+      <div class="stat"><div class="n">{{ total }}</div><div class="l">期</div></div>
+      <div class="stat"><div class="n">{{ course_n }}</div><div class="l">课程日</div></div>
+      <div class="stat"><div class="n">{{ extra_n }}</div><div class="l">番外</div></div>
+      <div class="stat"><div class="n">{{ done_n }}<span class="sub">/{{ total }}</span></div><div class="l">已完稿</div></div>
+    </div>
+  </header>
+
+  <section class="wall-sec">
+    <div class="sec-head">
+      <h2>矩阵墙</h2>
+      <span class="hint">每一格是一期 · 方块=课程日 · 圆点=番外 · 淡色=待整理 · 点进去看看</span>
+    </div>
+    <div class="wall" id="wall">
+      {% for e in episodes %}
+      <a class="cell {{ 'extra' if e.series == 'extra' else 'course' }}"
+         href="ep/{{ e.id }}.html"
+         style="background: {{ e.color }}"
+         data-t="{{ e.label }} · {{ e.title }}"
+         aria-label="{{ e.label }} {{ e.title }}"></a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="list-sec">
+    <div class="group-title">课程日 · Day 1–39</div>
+    {% for e in course_eps %}
+    <a class="card {{ 'is-draft' if e.status == 'draft' else '' }}" href="ep/{{ e.id }}.html">
+      <span class="idx">D{{ '%02d' % e.no }}</span>
+      <span class="body">
+        <span class="t">{{ e.title }}</span>
+        <span class="m">
+          {% if e.topic %}<span>{{ e.topic }}</span><span class="dot">·</span>{% endif %}
+          <span>{{ e.date }}</span>
+          {% if e.readTime %}<span class="dot">·</span><span>{{ e.readTime }}</span>{% endif %}
+          {% if e.status == 'draft' %}<span class="dot">·</span><span class="draft-tag">整理中</span>{% endif %}
+        </span>
+      </span>
+    </a>
+    {% endfor %}
+
+    <div class="group-title">番外篇 · Vol.1–{{ extra_n }}</div>
+    {% for e in extra_eps %}
+    <a class="card extra {{ 'is-draft' if e.status == 'draft' else '' }}" href="ep/{{ e.id }}.html">
+      <span class="idx">V{{ '%02d' % e.no }}</span>
+      <span class="body">
+        <span class="t">{{ e.title }}</span>
+        <span class="m">
+          {% if e.topic %}<span>{{ e.topic }}</span><span class="dot">·</span>{% endif %}
+          <span>{{ e.date }}</span>
+          {% if e.readTime %}<span class="dot">·</span><span>{{ e.readTime }}</span>{% endif %}
+          {% if e.status == 'draft' %}<span class="dot">·</span><span class="draft-tag">整理中</span>{% endif %}
+        </span>
+      </span>
+    </a>
+    {% endfor %}
+  </section>
+
+</div>
+
+<div class="tip" id="tip"></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+  var tip = document.getElementById('tip');
+  document.querySelectorAll('.cell').forEach(function (c) {
+    c.addEventListener('mouseenter', function () {
+      tip.textContent = c.dataset.t;
+      tip.classList.add('on');
+    });
+    c.addEventListener('mousemove', function (ev) {
+      var x = ev.clientX + 14, y = ev.clientY + 16;
+      if (x + tip.offsetWidth > window.innerWidth - 10) x = ev.clientX - tip.offsetWidth - 14;
+      tip.style.left = x + 'px';
+      tip.style.top = y + 'px';
+    });
+    c.addEventListener('mouseleave', function () { tip.classList.remove('on'); });
+  });
+})();
+</script>
+{% endblock %}

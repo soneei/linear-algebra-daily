@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一整座电网，被压缩成只有 −1、0、1 的表格 · 人话线性代数</title>
+<meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
+<meta property="og:title" content="一整座电网，被压缩成只有 −1、0、1 的表格">
+<meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-brand" href="../index.html">人话线性代数</a>
+    <div class="nav-spacer"></div>
+<a class="nav-link" href="../index.html">← 全部</a>
+    <a class="nav-link" href="https://github.com/soneei/linear-algebra-daily" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="ep-head">
+    <div class="eyebrow">Vol.19 · 番外 · 2026-09-07</div>
+    <h1>一整座电网，被压缩成只有 −1、0、1 的表格</h1>
+    <div class="tags">
+<span class="tag">图论</span><span class="tag">关联矩阵</span><span class="tag">基尔霍夫定律</span>    </div>
+  </header>
+
+
+  <div class="hook">开空调的同时开微波炉，电流为什么自动分流、不把线烧掉？其实它是被线性代数「解」出来的。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>物理课上你背过「基尔霍夫定律」，大概当它是两条独立的电路规则。但 Strang 说：不用背，这两条定律只是某个矩阵的两个子空间而已。</p><p>怎么变的？把电路的每个<b>节点</b>当一列，每条<b>边</b>当一行。每条边那一行只填三个数：从哪个节点出发写 −1，到哪个节点写 +1，不相干的节点写 0。</p><p>整张复杂的电网，一瞬间变成一张只有 −1、0、1 的表格。这张表叫<b>关联矩阵</b>。然后拿它去乘电压向量 x，矩阵会自动算出每条边的「电压差」（高电势 − 低电势）。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">零空间 = 电压零点可以任意定</span>
+      <div>零空间是 (1,1,1,1)——所有节点电压相等。电压差全是 0，说明「整栋楼电压同时抬高 100V，电路行为完全不变」。物理上管这叫「接地」，本质上就是：电压的零点是人定的。Strang 拿微积分的 +C 打比方——Graph theory adds (c,c,c,c) to the vector x。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">行空间维数 = n − 1：独立行连成一棵「树」</span>
+      <div>没有回路的连通图叫树，边数恰好比节点数少 1。回路的出现，意味着出现了线性相关的那一行。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">列空间 = 基尔霍夫电压定律</span>
+      <div>绕任意一圈走回原点，电压差相加必然归零。这条定律的全部内容，就是「某些行向量的组合等于 0」。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">左零空间 = 基尔霍夫电流定律</span>
+      <div>Aᵀy = 0 的含义是：每个节点流入 = 流出。它的基向量长什么样？就是<b>绕着每个小圈转的环流</b>。电流会乖乖分流，是因为它必须落在这个空间里。</div>
+    </div>
+  </div>
+
+  <div class="fx">
+    <div class="lb">网络总平衡表</div>
+    <div class="fr">AᵀCA x = f</div>
+<div class="nt">把欧姆定律写进去以后，所有方程聚成这一行。Strang 的习惯是：所有应用问题里先找 AᵀCA——电路、弹簧、热传导、交通流、经济模型，全是同一行公式。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">白捡一个拓扑学第一定理</span>
+      <div>左零空间的维数是 m − n + 1，正好等于「独立小回路的个数」。代进欧拉公式：节点 − 边 + 回路 = 1。Strang 原话：「linear algebra yields Euler's formula: Theorem 1 in topology!」——线代送了你一个拓扑学定理。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “By specializing to incidence matrices, the laws of linear algebra become Kirchhoff&#39;s laws. Please don&#39;t be put off by the words &#39;current&#39; and &#39;voltage.&#39; These rectangular matrices are the best.”
+    <span class="by">— Gilbert Strang · §10.1 Graphs and Networks</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §10.1 Graphs and Networks</span>
+    pp. 452–460
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>电网是图，朋友圈的关系网 / 公司报销流程 / 地铁线路图，也都是图。写成关联矩阵，欧拉公式能告诉你里面藏着几个「圈」。</p><p>下次遇到「怎么都解不开的僵局」，不妨想想：是不是有个回路，在里面一直打转。</p>  </div>
+
+  <nav class="ep-foot">
+    <a class="pn prev" href="vol-18.html">
+      <span class="d">上一期</span>Vol.18 · n维的开口朝上
+    </a>
+    <a class="pn next" href="vol-20.html">
+      <span class="d">下一期</span>Vol.20 · 无解的方程，数学家给它造了个最佳替身逆
+    </a>
+  </nav>
+
+
+</div>
+
+<div class="foot">
+  <div class="wrap">
+    内容基于 Gilbert Strang《Introduction to Linear Algebra》(5th Edition) 与 MIT 18.06 公开课整理。
+    教材原文引用仅用于学习与评论，版权归原作者及出版方所有。<br>
+    本站为个人学习笔记项目，与 MIT 及原作者无隶属关系。
+  </div>
+</div>
+
+</body>
+</html>

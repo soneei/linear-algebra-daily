@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{{ meta.title }}{% endblock %}</title>
+<meta name="description" content="{{ meta.description }}">
+<meta property="og:title" content="{% block ogtitle %}{{ meta.title }}{% endblock %}">
+<meta property="og:description" content="{{ meta.description }}">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="{{ root }}assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-brand" href="{{ root }}index.html">{{ meta.title }}</a>
+    <div class="nav-spacer"></div>
+    {% block navright %}{% endblock %}
+    <a class="nav-link" href="{{ meta.repo }}" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+<div class="foot">
+  <div class="wrap">
+    内容基于 Gilbert Strang《Introduction to Linear Algebra》(5th Edition) 与 MIT 18.06 公开课整理。
+    教材原文引用仅用于学习与评论，版权归原作者及出版方所有。<br>
+    本站为个人学习笔记项目，与 MIT 及原作者无隶属关系。
+  </div>
+</div>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>
