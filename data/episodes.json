@@ -16,19 +16,60 @@
       "date": "2026-06-05",
       "unit": "第一单元",
       "label": "Day 1",
-      "title": "单元总述",
+      "title": "你不能把苹果和橘子加在一起",
       "topic": "线性代数概览",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "tags": [
+        "向量",
+        "线性组合",
+        "整门课地图"
+      ],
+      "status": "done",
+      "hook": "整门课的第一句话，Strang 没写公式，写的是常识：你不能把苹果和橘子加在一起。",
+      "story": [
+        "线性代数的两个基本操作，其实你在小学就学会了——<b>加法</b>和<b>数乘</b>。",
+        "3 个苹果 + 2 个苹果 = 5 个苹果（同类相加）；3 个苹果 × 2 = 6 个苹果（拉伸）。",
+        "但 3 个苹果 + 2 个橘子，写不成一个数字——它们不在同一个「分量」上。",
+        "向量 (3, 2) 的意思就是：苹果方向 3 份、橘子方向 2 份。它天生是「打包」的——每个分量各自相加，绝不跨界。"
+      ],
+      "insight": [
+        {
+          "title": "整门课只研究两件事",
+          "body": "线性代数的中心只有两个操作：向量相加、向量数乘。所有概念——矩阵、子空间、特征值、最小二乘——都是这两件事的延伸。"
+        },
+        {
+          "title": "向量 = 有序的一组数",
+          "body": "v = (v₁, v₂) 里，v₁ 和 v₂ 的地位由「位置」决定，不能互换。位置本身就是信息：第一分量永远代表第一维度。"
+        },
+        {
+          "title": "线性组合是全局关键词",
+          "body": "c·v + d·w 这种「各取几份再加起来」的形式叫线性组合。Strang 说：Linear combinations are the key to linear algebra。整本书都在研究「哪些组合能到达哪些地方」。"
+        }
+      ],
+      "math": [
+        {
+          "label": "线性组合",
+          "formula": "c·v + d·w",
+          "note": "v、w 是向量，c、d 是任意实数。改变 c、d 就能扫出一整个平面——这正是「列空间」的原型。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "零向量不是「没有东西」",
+          "body": "数字 0 是「没有东西」，零向量 0 = (0, 0) 却是「苹果 0 份、橘子 0 份」——它是一个真正的向量，住在原点，可以参与运算。"
+        }
+      ],
+      "quote": {
+        "text": "You can't add apples and oranges.",
+        "by": "Gilbert Strang",
+        "src": "§1.1 Vectors and Linear Combinations"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§1.1 Vectors and Linear Combinations",
+        "pages": "pp. 13–24"
+      },
+      "think": "整门课的第一课其实在教你「怎么分类」。任何一组「不能混着加」的东西，都天然是一组向量分量。想想你手上那些不能相加的指标——它们各自就是一个维度。",
+      "readTime": "3 min"
     },
     {
       "id": "day-2",
@@ -37,19 +78,60 @@
       "date": "2026-06-08",
       "unit": "第一单元",
       "label": "Day 2",
-      "title": "行图像 vs 列图像",
-      "topic": "线性方程的几何理解",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "一个方程组，两张照片",
+      "topic": "行图像 vs 列图像",
+      "tags": [
+        "行图像",
+        "列图像",
+        "Ax=b"
+      ],
+      "status": "done",
+      "hook": "同一个方程组，站在不同角度看，能「拍」出两张截然不同的照片。",
+      "story": [
+        "方程组：x − 2y = 1；3x + 2y = 11。",
+        "<b>行图像</b>：把每个方程看成平面上的一条直线。两条线的交点 (3, 2) 就是解——两条路在哪里相遇。",
+        "<b>列图像</b>：把两个方程竖着看，变成「列向量怎么组合出 b」：(1,3)·x + (−2,2)·y = (1,11)。",
+        "同一件事：行图像问「两条线在哪交叉」，列图像问「两个箭头的什么配比重叠成第三个箭头」。"
+      ],
+      "insight": [
+        {
+          "title": "列图像才是线性代数的母语",
+          "body": "Strang 反复强调列图像比行图像重要得多。原因是一旦维度升高，行图像（多个平面相交）就没法画了，但列图像（向量的线性组合）永远成立——它直接通向列空间。"
+        },
+        {
+          "title": "无解还是有解，一眼看出",
+          "body": "行图像里两线平行 ⇒ 无解；重合 ⇒ 无穷多解。列图像里 b 落在两个列向量张成的方向上 ⇒ 有解，否则无解。"
+        },
+        {
+          "title": "Ax = b 的两种读法",
+          "body": "左读：A 作用在未知的 x 上得到 b（变换视角）。右读：A 的列按 x 的分量加权相加组合出 b（组合视角）。整门课在这两种读法之间来回切换。"
+        }
+      ],
+      "math": [
+        {
+          "label": "方程组",
+          "formula": "x − 2y = 1,   3x + 2y = 11",
+          "note": "解为 (x, y) = (3, 2)。矩阵形式 Ax = b，A = [[1,−2],[3,2]]，b = (1,11)。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "为什么第一节课不放公式",
+          "body": "Strang 用两条直线的交点开场，是先建立几何直觉——公式是用来「固定」直觉的工具，而不是相反。"
+        }
+      ],
+      "quote": {
+        "text": "The row picture and the column picture: same equations, two very different ways to see them.",
+        "by": "Gilbert Strang",
+        "src": "§2.1 Vectors and Linear Equations"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§2.1 Vectors and Linear Equations",
+        "pages": "pp. 41–44"
+      },
+      "think": "一个复杂问题，往往也能「拍两张照片」：一张从约束看（行图像），一张从组合看（列图像）。换一张看，卡住的地方经常就通了。",
+      "readTime": "3 min"
     },
     {
       "id": "day-3",
@@ -58,19 +140,65 @@
       "date": "2026-06-09",
       "unit": "第一单元",
       "label": "Day 3",
-      "title": "线性代数核心思想综述",
-      "topic": "同一个三个向量，两个截然不同的矩阵",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "同一个三兄弟，两个截然不同的矩阵",
+      "topic": "线性代数核心思想综述",
+      "tags": [
+        "差分矩阵",
+        "循环矩阵",
+        "可逆性"
+      ],
+      "status": "done",
+      "hook": "同样三个向量 (u, v, w)，放进矩阵 A 能倒推回来，放进矩阵 C 就永远回不来。",
+      "story": [
+        "三个人排成一列，相邻两人之差构成一组「差值」输出。",
+        "矩阵 A 做的是<b>差分</b>：输出 (v−u, w−v) 两个差值——但这两个差值配合起点就能还原三个原值。",
+        "矩阵 C 做的是<b>循环差分</b>：输出 (v−u, w−v, u−w)，多算了一个差值。",
+        "怪事：C 比 A 多给一条信息，反而更不能倒推——因为三个差值之和恒等于 0，第三行是前两行的组合，多余却无用。"
+      ],
+      "insight": [
+        {
+          "title": "信息多 ≠ 信息全",
+          "body": "C 输出了 3 个数，A 只输出 2 个，但 A 能还原而 C 不能。关键不在数量，而在列向量是否线性无关。C 的三列线性相关（相加为 0），丢掉了一个独立方向。"
+        },
+        {
+          "title": "可逆性的物理直觉",
+          "body": "A 像一根固定在墙上的绳子：知道起点就能推出整条绳子。C 像一个闭环：转一圈回到原点，你无法判断从哪出发——力必须平衡（差值总和为 0）才能稳定。"
+        },
+        {
+          "title": "线性无关 → 张成空间 → 有解",
+          "body": "这条逻辑链是整门课的主干：列是否线性无关？能张成整个空间吗？Ax = b 对任意 b 有解吗？三个问题其实是同一个问题。"
+        }
+      ],
+      "math": [
+        {
+          "label": "差分矩阵（列独立）",
+          "formula": "A = [[−1,1,0],[0,−1,1]]",
+          "note": "2×3 差分矩阵，行独立。它是「离散导数」，转置对应「离散积分」/累加。"
+        },
+        {
+          "label": "循环矩阵（不可逆）",
+          "formula": "C = [[−1,1,0],[0,−1,1],[1,0,−1]]",
+          "note": "三行相加为 0 ⇒ 行线性相关 ⇒ det C = 0 ⇒ 不可逆。这就是「力必须平衡」的数学表达。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "导数与积分的矩阵版",
+          "body": "差分矩阵 A 会反复出现在 SVD、图论、信号处理里——它就是「离散导数」。而 A 的转置是「累加」。导数与积分互为逆运算，在矩阵世界就是 A 与 Aᵀ 的关系。"
+        }
+      ],
+      "quote": {
+        "text": "Linear combinations are the key to linear algebra.",
+        "by": "Gilbert Strang",
+        "src": "§1.3 Matrices"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§1.3 Matrices",
+        "pages": "pp. 31–39"
+      },
+      "think": "「多了一条信息，反而更不可解」这个反直觉现象值得记住。现实里也常见：指标堆得越多，独立维度反而越少，噪声把信号淹了。判据只有一个——它们是不是互相独立。",
+      "readTime": "3 min"
     },
     {
       "id": "day-5",
@@ -79,19 +207,65 @@
       "date": "2026-06-17",
       "unit": "第一单元",
       "label": "Day 5",
-      "title": "矩阵乘法与逆矩阵",
-      "topic": "矩阵乘法不是只有一种看法",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "珍珠奶茶里的三种矩阵乘法",
+      "topic": "矩阵乘法与逆矩阵",
+      "tags": [
+        "矩阵乘法",
+        "外积",
+        "逆矩阵"
+      ],
+      "status": "done",
+      "hook": "Strang 说矩阵乘法有 5 种看法，其中一种他形容为「变魔术一样的揭秘」。",
+      "story": [
+        "奶茶店算账：A 是配方表（每杯用多少糖、茶、奶），B 是原料价格表。",
+        "<b>行视角</b>：从配方出发，一行点乘一列，得到每杯的总成本。",
+        "<b>列视角</b>：从原料出发，每种原料的价格按用量加权，重组出每杯成本。",
+        "<b>外积视角</b>：把 AB 拆成一堆「一列 × 一行」的小块叠加——Strang 说这就是他表演揭秘的时刻。"
+      ],
+      "insight": [
+        {
+          "title": "外积：秩 1 矩阵的叠加",
+          "body": "每一块 col_k(A) × row_k(B) 是一个秩 1 矩阵，只含一个方向的信息。n 块叠加起来就是完整的 AB。Strang 称这是 magician explaining a trick。"
+        },
+        {
+          "title": "可逆的本质",
+          "body": "A 可逆，当且仅当它不把非零向量压成 0。一旦有信息被压没了（零空间含非零向量），就永远回不去——这就是不可逆。"
+        },
+        {
+          "title": "乘法顺序不能换",
+          "body": "AB ≠ BA 是常态。矩阵是「操作」不是数字：先转再走、先走再转，终点不同。"
+        }
+      ],
+      "math": [
+        {
+          "label": "外积视角",
+          "formula": "AB = Σₖ col_k(A) · row_k(B)",
+          "note": "把乘法拆成 n 个秩 1 矩阵（一列乘一行）之和。这一视角直接通向 SVD 与低秩近似。"
+        },
+        {
+          "label": "逆矩阵",
+          "formula": "A⁻¹A = AA⁻¹ = I",
+          "note": "A⁻¹ 存在 ⇔ det A ≠ 0 ⇔ 列线性无关 ⇔ 零空间只有零向量。Gauss-Jordan 可用增广矩阵 [A | I] 一次求出。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "Strang 的魔术师比喻",
+          "body": "大多数数学家不愿把「绝招」摊开，但 Strang 说他愿意像魔术师揭秘一样，把第四种乘法（外积）讲给你听。"
+        }
+      ],
+      "quote": {
+        "text": "I feel like a magician explaining a trick. Magicians won't do it but mathematicians try.",
+        "by": "Gilbert Strang",
+        "src": "§2.4 Rules for Matrix Operations"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§2.4 Rules for Matrix Operations / §2.5 Inverse Matrices",
+        "pages": "pp. 63–92"
+      },
+      "think": "外积视角不起眼，却是整门课最有用的一把钥匙：它把「一个大矩阵」拆成「若干层简单结构」。低秩近似、图像压缩、PCA 全都建立在这一刀上。",
+      "readTime": "4 min"
     },
     {
       "id": "day-6",
@@ -100,19 +274,60 @@
       "date": "2026-06-18",
       "unit": "第一单元",
       "label": "Day 6",
-      "title": "后悔药",
-      "topic": "LU分解 — 消元法的",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "消元法的后悔药：A = LU",
+      "topic": "LU 分解",
+      "tags": [
+        "LU分解",
+        "消元",
+        "三角矩阵"
+      ],
+      "status": "done",
+      "hook": "消元时顺手把「做过什么」记下来，你就得到一颗后悔药——换个 b，不用重消一遍。",
+      "story": [
+        "一份番茄炒蛋的配方被改了三遍：先减盐、再减油、最后加糖。",
+        "只留最终成品，你永远不知道改了什么；但如果每一步都留一张便签，就能随时还原。",
+        "LU 分解就是这些便签：L 记录消元每一步「用了什么乘数、动了哪一行」，U 是消元后的上三角矩阵。",
+        "奇迹：乘数不需要额外计算，它们原封不动地落进 L 的对应位置——不乱不混。"
+      ],
+      "insight": [
+        {
+          "title": "乘数直接落位",
+          "body": "通常矩阵乘法会把数字搅成一团，但在 LU 分解里不会：消元第 (i,j) 步用的乘数，正好就是 L 的第 (i,j) 个元素。Strang 特意强调这个「不发生混合」的奇迹。"
+        },
+        {
+          "title": "L 的对角线全是 1",
+          "body": "L 的对角线上全是 1（基准行不需要记录），真正承载信息的是对角线以下的部分。"
+        },
+        {
+          "title": "一次分解，反复使用",
+          "body": "A = LU 的最大价值是复用：换一个右边项 b，只要两步——先解 Lc = b（前向代入），再解 Ux = c（后向代入），都是 O(n²)，比重新消元的 O(n³) 便宜得多。"
+        }
+      ],
+      "math": [
+        {
+          "label": "LU 分解",
+          "formula": "A = L U",
+          "note": "L 是下三角（对角全 1，记录乘数），U 是上三角（消元结果）。若需换行，则写成 PA = LU，P 是置换矩阵。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "为什么这是「纯实用」的一节",
+          "body": "Strang 说：学生常抱怨数学课太理论——但这一节不是，它几乎纯粹是实用的。LU 是数值线性代数里最常被调用的分解之一。"
+        }
+      ],
+      "quote": {
+        "text": "Students often say that mathematics courses are too theoretical. Well, not this section. It is almost purely practical.",
+        "by": "Gilbert Strang",
+        "src": "§2.6 Elimination = Factorization: A = LU"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§2.6 Elimination = Factorization: A = LU",
+        "pages": "pp. 96–98"
+      },
+      "think": "LU 的本质是「把过程留痕」。这跟审计里的操作日志是同一个思想：结果重要，但「怎么走到结果」的过程，才是复用和追责的依据。",
+      "readTime": "3 min"
     },
     {
       "id": "day-7",
@@ -121,19 +336,65 @@
       "date": "2026-06-19",
       "unit": "第一单元",
       "label": "Day 7",
-      "title": "转置、置换、向量空间 R^n",
-      "topic": "",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "第一象限不是向量空间",
+      "topic": "转置、置换、向量空间 Rⁿ",
+      "tags": [
+        "转置",
+        "置换矩阵",
+        "向量空间"
+      ],
+      "status": "done",
+      "hook": "第一象限看起来是个正经空间——直到你乘以 −1，它整个飞了出去。",
+      "story": [
+        "把平面上第一象限（x≥0, y≥0）当成一个「空间」，它看起来很完整。",
+        "但空间有一条铁规矩：对线性组合封闭。取里面的向量 (1,1)，乘以 −1，得到 (−1,−1)——飞出了第一象限。",
+        "所以它不是一个向量空间。真正的 R² 必须包含所有方向，包括反向和原点。",
+        "另一个例子：置换矩阵 P。它的转置刚好等于它的逆——转置就是那个「撤销按钮」。"
+      ],
+      "insight": [
+        {
+          "title": "子空间必须过原点",
+          "body": "任何子空间都必须包含零向量（因为可以取系数全为 0 的线性组合）。过不了原点，就不可能是子空间。"
+        },
+        {
+          "title": "置换矩阵：转置即逆",
+          "body": "置换矩阵 P 每行每列只有一个 1。交换两行的动作，撤销它只需交换回来——所以 Pᵀ = P⁻¹。"
+        },
+        {
+          "title": "AᵀA 一定对称",
+          "body": "(AᵀA)ᵀ = AᵀA。无论 A 长得多歪，AᵀA 永远是方阵且对称——这也是最小二乘能成立的关键。"
+        }
+      ],
+      "math": [
+        {
+          "label": "置换矩阵",
+          "formula": "Pᵀ = P⁻¹",
+          "note": "置换矩阵是单位矩阵的行重排。交换行的操作可以反复进行而无损撤销。"
+        },
+        {
+          "label": "对称自动装置",
+          "formula": "(AᵀA)ᵀ = AᵀA",
+          "note": "任何矩阵与其转置的乘积必为对称方阵——把「乱表」变成「整齐方阵」。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "转置不只是「翻面」",
+          "body": "Strang 强调：把矩阵沿对角线翻过来，那只是「描述」；转置真正的定义是 (Ax)·y = x·(Aᵀy)——把作用在 x 上的操作，等价翻译成作用在 y 上。"
+        }
+      ],
+      "quote": {
+        "text": "The attainable right sides b are exactly the vectors in the column space.",
+        "by": "Gilbert Strang",
+        "src": "§3.1 Spaces of Vectors"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§2.7 Transposes and Permutations / §3.1 Spaces of Vectors",
+        "pages": "pp. 109–125"
+      },
+      "think": "「不封闭就不是空间」是条很硬的判据。用它检查任何自称「系统/体系」的东西：把操作反过来做，还在里面吗？不在了，它就不是自洽的闭系统。",
+      "readTime": "3 min"
     },
     {
       "id": "day-8",
@@ -142,19 +403,65 @@
       "date": "2026-06-23",
       "unit": "第一单元",
       "label": "Day 8",
-      "title": "列空间与零空间",
-      "topic": "同一个矩阵的两个互补视角",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "矩阵是一扇门",
+      "topic": "列空间与零空间",
+      "tags": [
+        "列空间",
+        "零空间",
+        "子空间"
+      ],
+      "status": "done",
+      "hook": "矩阵像一扇门：列空间告诉你走进去能到达哪里，零空间告诉你有多少条路走进去等于没走。",
+      "story": [
+        "奶茶店：A 是配方矩阵，x 是「各做几杯」的数量，Ax = 用掉多少原料。",
+        "<b>列空间 C(A)</b>：所有可能做出的原料组合——「能到哪」。",
+        "<b>零空间 N(A)</b>：哪些配方组合等于白加（Ax = 0）——「白走的路」。",
+        "一个管「能到哪」，一个管「走多少步等于没走」。两者刚好互补。"
+      ],
+      "insight": [
+        {
+          "title": "两种造子空间的方式",
+          "body": "一种靠「张成」：拿列向量做线性组合，造出列空间。另一种靠「约束」：要求 Ax = 0，解出来的所有 x 构成零空间。张成与约束，是造子空间的两条路。"
+        },
+        {
+          "title": "Ax = b 有解的判据",
+          "body": "Ax = b 有解，当且仅当 b 落在 A 的列空间里。这句话把「解方程」翻译成了「b 在不在某个空间里」——一个几何问题。"
+        },
+        {
+          "title": "零空间衡量「信息丢失」",
+          "body": "零空间越大，说明 A 压掉的方向越多，可逆性越差。零空间只有零向量 ⇔ 列线性无关 ⇔ 可逆。"
+        }
+      ],
+      "math": [
+        {
+          "label": "列空间",
+          "formula": "C(A) = { Ax : x ∈ Rⁿ }",
+          "note": "A 所有列向量的线性组合构成的集合，是 Rᵐ 的子空间。它决定了哪些 b 有解。"
+        },
+        {
+          "label": "零空间",
+          "formula": "N(A) = { x : Ax = 0 }",
+          "note": "让 A「归零」的所有输入，是 Rⁿ 的子空间（必然包含原点）。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "「空间」为什么必须过原点",
+          "body": "子空间的三个条件：包含零向量、对加法封闭、对数乘封闭。少任何一条，它就只能叫「集合」，不能叫「空间」。"
+        }
+      ],
+      "quote": {
+        "text": "The column space is crucial to the whole book… Ax = b is solvable if and only if b is in the column space of A.",
+        "by": "Gilbert Strang",
+        "src": "§3.1–3.2"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§3.1 Spaces of Vectors / §3.2 The Nullspace of A",
+        "pages": "pp. 121–140"
+      },
+      "think": "「能到哪」和「白走的路」——这对概念能套用到很多地方。做一件事，先问它的列空间（能产出什么），再问它的零空间（哪些投入是白费的）。零空间越大，效率越低。",
+      "readTime": "3 min"
     },
     {
       "id": "day-9",
@@ -163,19 +470,65 @@
       "date": "2026-06-24",
       "unit": "第一单元",
       "label": "Day 9",
-      "title": "求解 Ax=0",
-      "topic": "自由变量的人生哲学",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "自由变量的人生哲学",
+      "topic": "求解 Ax=0：主变量与特解",
+      "tags": [
+        "零空间",
+        "自由变量",
+        "特解"
+      ],
+      "status": "done",
+      "hook": "当方程比未知数少的时候，有些变量天生就是自由的。",
+      "story": [
+        "侦探案子：3 条线索、4 个嫌疑人。线索不足以给所有人定罪。",
+        "必然有 2 个人（自由变量）永远无法被线索确定——他们可以自由取值。",
+        "剩下的 2 个（主变量）则被线索绑死：一旦自由变量定了，主变量就跟着定。",
+        "把自由变量轮流取 (1,0)、(0,1)，就得到两个「特解」。所有特解的线性组合，张成整个零空间。"
+      ],
+      "insight": [
+        {
+          "title": "自由变量 = 信息的缺口",
+          "body": "每少一个独立方程（少一个主元），就多一个自由变量。n − r 个自由变量，意味着零空间有 n − r 维——有 n − r 个「随便走也不改变结果」的方向。"
+        },
+        {
+          "title": "消元不改变零空间",
+          "body": "N(A) = N(U) = N(R)：行变换不改变 Ax = 0 的解集。所以可以放心先消元，再回代求特解。"
+        },
+        {
+          "title": "特解张成零空间",
+          "body": "每个自由变量对应一个特解（把它取 1、其余自由变量取 0）。这些特解线性无关，正好是零空间的一组基。"
+        }
+      ],
+      "math": [
+        {
+          "label": "零空间的维数",
+          "formula": "dim N(A) = n − r",
+          "note": "n 是列数（未知数个数），r 是秩（主元个数）。自由变量个数 = 零空间维数。"
+        },
+        {
+          "label": "特解构造",
+          "formula": "自由变量取 (1,0,…), (0,1,…) 后回代",
+          "note": "求出对应的主变量，得到一组线性无关的特解，张成 N(A)。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "零空间为什么是子空间",
+          "body": "Ax = 0 的解集自动满足「过原点 + 对加法封闭 + 对数乘封闭」：0 是解；两个解相加还是解；解乘任意数还是解。这就是它能叫「空间」的原因。"
+        }
+      ],
+      "quote": {
+        "text": "Elimination does not change the nullspace: N(A) = N(U) = N(R).",
+        "by": "Gilbert Strang",
+        "src": "§3.2 The Nullspace of A"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§3.2 The Nullspace of A: Solving Ax = 0 and Rx = 0",
+        "pages": "pp. 132–140"
+      },
+      "think": "「自由变量」其实是个很实用的概念：一个系统里，哪些变量你管不着、也不需要管？它们就是自由变量。真正需要锁定的，是主变量——数量等于秩。",
+      "readTime": "3 min"
     },
     {
       "id": "day-10",
@@ -184,19 +537,60 @@
       "date": "2026-06-25",
       "unit": "第一单元",
       "label": "Day 10",
-      "title": "求解 Ax=b",
-      "topic": "特解 + 零空间 = 通解",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "¥30 套餐与一桌免费的菜",
+      "topic": "求解 Ax=b：特解 + 零空间 = 通解",
+      "tags": [
+        "通解",
+        "特解",
+        "仿射子空间"
+      ],
+      "status": "done",
+      "hook": "一份 ¥30 套餐 = 一个特解；桌上的免费小菜 = 零空间。",
+      "story": [
+        "餐厅套餐：主食定价 ¥30（锁定你的选择），但免费小菜随便加。",
+        "对应 Ax = b：特解 x_p 是「锁定 b 的那一份」，零空间是「加了不影响总额的免费项」。",
+        "通解 = 一个特解 + 零空间的任意向量：x = x_p + x_n。",
+        "几何上，通解是一个不经过原点的「仿射子空间」——被平移过的空间。"
+      ],
+      "insight": [
+        {
+          "title": "解的结构",
+          "body": "通解 = 一个特解 + 零空间的所有向量。特解负责「命中 b」，零空间负责「自由漫步」。"
+        },
+        {
+          "title": "存在性与唯一性分开看",
+          "body": "有解 ⇔ b ∈ C(A)（列空间）；唯一解 ⇔ 零空间只有零向量。两个条件互相独立，组合出四种情形。"
+        },
+        {
+          "title": "仿射 ≠ 线性",
+          "body": "通解集合不经过原点（除非 b = 0），所以它不是子空间——它是「被平移的子空间」，数学上叫仿射子空间。"
+        }
+      ],
+      "math": [
+        {
+          "label": "通解",
+          "formula": "x = x_p + x_n",
+          "note": "x_p 是 Ax = b 的任一特解，x_n 取遍零空间 N(A)。当 b 不在列空间里时，无解。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "为什么「特解」要特",
+          "body": "特解不唯一（任何满足 Ax = b 的 x 都行），我们只是挑一个方便算的（自由变量取 0）。特解不唯一，但零空间是唯一的。"
+        }
+      ],
+      "quote": {
+        "text": "The complete solution to Ax = b is a particular solution plus any vector in the nullspace.",
+        "by": "Gilbert Strang",
+        "src": "§3.3 The Complete Solution to Ax = b"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§3.3 The Complete Solution to Ax = b",
+        "pages": "pp. 145–160"
+      },
+      "think": "「一个特解 + 零空间」这个结构，在生活里处处可见：任何一个「可行方案」都可以再加上若干「不影响结果的动作」。做决策时值得问一句：我加的这些动作，落在零空间里吗？",
+      "readTime": "3 min"
     },
     {
       "id": "day-11",
@@ -205,19 +599,65 @@
       "date": "2026-06-26",
       "unit": "第一单元",
       "label": "Day 11",
-      "title": "线性无关、基、维数",
-      "topic": "",
-      "tags": [],
-      "status": "draft",
-      "hook": "",
-      "story": [],
-      "insight": [],
-      "math": [],
-      "trivia": [],
-      "quote": null,
-      "source": null,
-      "think": "",
-      "readTime": ""
+      "title": "宜家柜子的螺丝，多一颗就废",
+      "topic": "线性无关、基、维数",
+      "tags": [
+        "线性无关",
+        "基",
+        "维数"
+      ],
+      "status": "done",
+      "hook": "在 2 维空间里塞 3 个独立向量，就像在 4 个抽屉里塞 8 颗螺丝——必然有抽屉要合并。",
+      "story": [
+        "宜家的柜子配 8 颗螺丝、4 个孔位——多出来的螺丝无处可拧。",
+        "数学里同理：在 Rᵐ 中，任何 m+1 个向量必然线性相关。",
+        "反过来，一个空间里「最少且刚好」张成它的那组向量，叫基（basis）。",
+        "基里向量的个数，叫维数（dimension）——而且任何一组基，个数都一样。这是定理，不是定义。"
+      ],
+      "insight": [
+        {
+          "title": "维数是被证明出来的",
+          "body": "「所有基的向量个数都相等」不是定义，是定理。正因如此，「维数」才可以被定义为基的向量个数。"
+        },
+        {
+          "title": "三副面孔同一张脸",
+          "body": "下面三件事互为等价：零空间只有零向量 ⇔ 各列线性无关 ⇔ 满秩 r = n。这是本单元反复出现的主题。"
+        },
+        {
+          "title": "基 = 不冗余也不缺角",
+          "body": "基的两个要求：张成整个空间（不缺），且线性无关（不冗余）。少一个向量就张不成，多一个就必然相关。"
+        }
+      ],
+      "math": [
+        {
+          "label": "线性无关",
+          "formula": "c₁v₁ + c₂v₂ + … + cₙvₙ = 0 仅有零解 c = 0",
+          "note": "没有任何一个向量能由其余的线性组合出来。等价于以它们为列的矩阵零空间只有零向量。"
+        },
+        {
+          "label": "维数定理",
+          "formula": "任何基都含相同个数的向量",
+          "note": "个数即空间的维数。Rⁿ 的维数是 n；列空间维数是 r；零空间维数是 n − r。"
+        }
+      ],
+      "trivia": [
+        {
+          "title": "Rᵐ 里最多几个独立向量",
+          "body": "最多 m 个，超过必然相关。这解释了为什么「方程多于未知数」时经常无解，也解释了为什么绝大多数 m×n（m > n）矩阵不可逆。"
+        }
+      ],
+      "quote": {
+        "text": "All bases for a vector space contain the same number of vectors. The number of vectors, in any and every basis, is the 'dimension' of the space.",
+        "by": "Gilbert Strang",
+        "src": "§3.4 Independence, Basis and Dimension"
+      },
+      "source": {
+        "book": "Introduction to Linear Algebra (5th)",
+        "section": "§3.4 Independence, Basis and Dimension",
+        "pages": "pp. 163–180"
+      },
+      "think": "「最小且完整」是一对张力。基就是这种平衡的产物：多一个冗余，少一个残缺。想想你手头的信息/指标/资源，哪些是基、哪些是冗余？把冗余拿掉，系统反而更清晰。",
+      "readTime": "3 min"
     },
     {
       "id": "day-12",

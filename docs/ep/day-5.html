@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>矩阵乘法与逆矩阵 · 人话线性代数</title>
+<title>珍珠奶茶里的三种矩阵乘法 · 人话线性代数</title>
 <meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
-<meta property="og:title" content="矩阵乘法与逆矩阵">
+<meta property="og:title" content="珍珠奶茶里的三种矩阵乘法">
 <meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css">
@@ -25,20 +25,75 @@
 
   <header class="ep-head">
     <div class="eyebrow">Day 5 · 第一单元 · 2026-06-17</div>
-    <h1>矩阵乘法与逆矩阵</h1>
+    <h1>珍珠奶茶里的三种矩阵乘法</h1>
     <div class="tags">
-<span class="tag tag-draft">整理中</span>    </div>
+<span class="tag">矩阵乘法</span><span class="tag">外积</span><span class="tag">逆矩阵</span>    </div>
   </header>
 
 
-  <div class="blk blk-pending">
-    <span class="blk-h">这一期的正文还在整理</span>
-    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
-    <p class="pn-topic"><span class="lb">主题</span>矩阵乘法不是只有一种看法</p>
+  <div class="hook">Strang 说矩阵乘法有 5 种看法，其中一种他形容为「变魔术一样的揭秘」。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>奶茶店算账：A 是配方表（每杯用多少糖、茶、奶），B 是原料价格表。</p><p><b>行视角</b>：从配方出发，一行点乘一列，得到每杯的总成本。</p><p><b>列视角</b>：从原料出发，每种原料的价格按用量加权，重组出每杯成本。</p><p><b>外积视角</b>：把 AB 拆成一堆「一列 × 一行」的小块叠加——Strang 说这就是他表演揭秘的时刻。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">外积：秩 1 矩阵的叠加</span>
+      <div>每一块 col_k(A) × row_k(B) 是一个秩 1 矩阵，只含一个方向的信息。n 块叠加起来就是完整的 AB。Strang 称这是 magician explaining a trick。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">可逆的本质</span>
+      <div>A 可逆，当且仅当它不把非零向量压成 0。一旦有信息被压没了（零空间含非零向量），就永远回不去——这就是不可逆。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">乘法顺序不能换</span>
+      <div>AB ≠ BA 是常态。矩阵是「操作」不是数字：先转再走、先走再转，终点不同。</div>
+    </div>
   </div>
 
+  <div class="fx">
+    <div class="lb">外积视角</div>
+    <div class="fr">AB = Σₖ col_k(A) · row_k(B)</div>
+<div class="nt">把乘法拆成 n 个秩 1 矩阵（一列乘一行）之和。这一视角直接通向 SVD 与低秩近似。</div>  </div>
+  <div class="fx">
+    <div class="lb">逆矩阵</div>
+    <div class="fr">A⁻¹A = AA⁻¹ = I</div>
+<div class="nt">A⁻¹ 存在 ⇔ det A ≠ 0 ⇔ 列线性无关 ⇔ 零空间只有零向量。Gauss-Jordan 可用增广矩阵 [A | I] 一次求出。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">Strang 的魔术师比喻</span>
+      <div>大多数数学家不愿把「绝招」摊开，但 Strang 说他愿意像魔术师揭秘一样，把第四种乘法（外积）讲给你听。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “I feel like a magician explaining a trick. Magicians won&#39;t do it but mathematicians try.”
+    <span class="by">— Gilbert Strang · §2.4 Rules for Matrix Operations</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §2.4 Rules for Matrix Operations / §2.5 Inverse Matrices</span>
+    pp. 63–92
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>外积视角不起眼，却是整门课最有用的一把钥匙：它把「一个大矩阵」拆成「若干层简单结构」。低秩近似、图像压缩、PCA 全都建立在这一刀上。</p>  </div>
+
   <nav class="ep-foot">
-<a class="pn prev" href="day-3.html"><span class="d">上一期</span>Day 3 · 线性代数核心思想综述</a><a class="pn next" href="day-6.html"><span class="d">下一期</span>Day 6 · 后悔药</a>  </nav>
+    <a class="pn prev" href="day-3.html">
+      <span class="d">上一期</span>Day 3 · 同一个三兄弟，两个截然不同的矩阵
+    </a>
+    <a class="pn next" href="day-6.html">
+      <span class="d">下一期</span>Day 6 · 消元法的后悔药：A = LU
+    </a>
+  </nav>
 
 
 </div>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>行图像 vs 列图像 · 人话线性代数</title>
+<title>一个方程组，两张照片 · 人话线性代数</title>
 <meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
-<meta property="og:title" content="行图像 vs 列图像">
+<meta property="og:title" content="一个方程组，两张照片">
 <meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css">
@@ -25,20 +25,71 @@
 
   <header class="ep-head">
     <div class="eyebrow">Day 2 · 第一单元 · 2026-06-08</div>
-    <h1>行图像 vs 列图像</h1>
+    <h1>一个方程组，两张照片</h1>
     <div class="tags">
-<span class="tag tag-draft">整理中</span>    </div>
+<span class="tag">行图像</span><span class="tag">列图像</span><span class="tag">Ax=b</span>    </div>
   </header>
 
 
-  <div class="blk blk-pending">
-    <span class="blk-h">这一期的正文还在整理</span>
-    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
-    <p class="pn-topic"><span class="lb">主题</span>线性方程的几何理解</p>
+  <div class="hook">同一个方程组，站在不同角度看，能「拍」出两张截然不同的照片。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>方程组：x − 2y = 1；3x + 2y = 11。</p><p><b>行图像</b>：把每个方程看成平面上的一条直线。两条线的交点 (3, 2) 就是解——两条路在哪里相遇。</p><p><b>列图像</b>：把两个方程竖着看，变成「列向量怎么组合出 b」：(1,3)·x + (−2,2)·y = (1,11)。</p><p>同一件事：行图像问「两条线在哪交叉」，列图像问「两个箭头的什么配比重叠成第三个箭头」。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">列图像才是线性代数的母语</span>
+      <div>Strang 反复强调列图像比行图像重要得多。原因是一旦维度升高，行图像（多个平面相交）就没法画了，但列图像（向量的线性组合）永远成立——它直接通向列空间。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">无解还是有解，一眼看出</span>
+      <div>行图像里两线平行 ⇒ 无解；重合 ⇒ 无穷多解。列图像里 b 落在两个列向量张成的方向上 ⇒ 有解，否则无解。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">Ax = b 的两种读法</span>
+      <div>左读：A 作用在未知的 x 上得到 b（变换视角）。右读：A 的列按 x 的分量加权相加组合出 b（组合视角）。整门课在这两种读法之间来回切换。</div>
+    </div>
   </div>
 
+  <div class="fx">
+    <div class="lb">方程组</div>
+    <div class="fr">x − 2y = 1,   3x + 2y = 11</div>
+<div class="nt">解为 (x, y) = (3, 2)。矩阵形式 Ax = b，A = [[1,−2],[3,2]]，b = (1,11)。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">为什么第一节课不放公式</span>
+      <div>Strang 用两条直线的交点开场，是先建立几何直觉——公式是用来「固定」直觉的工具，而不是相反。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “The row picture and the column picture: same equations, two very different ways to see them.”
+    <span class="by">— Gilbert Strang · §2.1 Vectors and Linear Equations</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §2.1 Vectors and Linear Equations</span>
+    pp. 41–44
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>一个复杂问题，往往也能「拍两张照片」：一张从约束看（行图像），一张从组合看（列图像）。换一张看，卡住的地方经常就通了。</p>  </div>
+
   <nav class="ep-foot">
-<a class="pn prev" href="day-1.html"><span class="d">上一期</span>Day 1 · 单元总述</a><a class="pn next" href="day-3.html"><span class="d">下一期</span>Day 3 · 线性代数核心思想综述</a>  </nav>
+    <a class="pn prev" href="day-1.html">
+      <span class="d">上一期</span>Day 1 · 你不能把苹果和橘子加在一起
+    </a>
+    <a class="pn next" href="day-3.html">
+      <span class="d">下一期</span>Day 3 · 同一个三兄弟，两个截然不同的矩阵
+    </a>
+  </nav>
 
 
 </div>

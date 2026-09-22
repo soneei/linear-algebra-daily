@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>转置、置换、向量空间 R^n · 人话线性代数</title>
+<title>第一象限不是向量空间 · 人话线性代数</title>
 <meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
-<meta property="og:title" content="转置、置换、向量空间 R^n">
+<meta property="og:title" content="第一象限不是向量空间">
 <meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css">
@@ -25,19 +25,75 @@
 
   <header class="ep-head">
     <div class="eyebrow">Day 7 · 第一单元 · 2026-06-19</div>
-    <h1>转置、置换、向量空间 R^n</h1>
+    <h1>第一象限不是向量空间</h1>
     <div class="tags">
-<span class="tag tag-draft">整理中</span>    </div>
+<span class="tag">转置</span><span class="tag">置换矩阵</span><span class="tag">向量空间</span>    </div>
   </header>
 
 
-  <div class="blk blk-pending">
-    <span class="blk-h">这一期的正文还在整理</span>
-    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
+  <div class="hook">第一象限看起来是个正经空间——直到你乘以 −1，它整个飞了出去。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>把平面上第一象限（x≥0, y≥0）当成一个「空间」，它看起来很完整。</p><p>但空间有一条铁规矩：对线性组合封闭。取里面的向量 (1,1)，乘以 −1，得到 (−1,−1)——飞出了第一象限。</p><p>所以它不是一个向量空间。真正的 R² 必须包含所有方向，包括反向和原点。</p><p>另一个例子：置换矩阵 P。它的转置刚好等于它的逆——转置就是那个「撤销按钮」。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">子空间必须过原点</span>
+      <div>任何子空间都必须包含零向量（因为可以取系数全为 0 的线性组合）。过不了原点，就不可能是子空间。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">置换矩阵：转置即逆</span>
+      <div>置换矩阵 P 每行每列只有一个 1。交换两行的动作，撤销它只需交换回来——所以 Pᵀ = P⁻¹。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">AᵀA 一定对称</span>
+      <div>(AᵀA)ᵀ = AᵀA。无论 A 长得多歪，AᵀA 永远是方阵且对称——这也是最小二乘能成立的关键。</div>
+    </div>
   </div>
 
+  <div class="fx">
+    <div class="lb">置换矩阵</div>
+    <div class="fr">Pᵀ = P⁻¹</div>
+<div class="nt">置换矩阵是单位矩阵的行重排。交换行的操作可以反复进行而无损撤销。</div>  </div>
+  <div class="fx">
+    <div class="lb">对称自动装置</div>
+    <div class="fr">(AᵀA)ᵀ = AᵀA</div>
+<div class="nt">任何矩阵与其转置的乘积必为对称方阵——把「乱表」变成「整齐方阵」。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">转置不只是「翻面」</span>
+      <div>Strang 强调：把矩阵沿对角线翻过来，那只是「描述」；转置真正的定义是 (Ax)·y = x·(Aᵀy)——把作用在 x 上的操作，等价翻译成作用在 y 上。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “The attainable right sides b are exactly the vectors in the column space.”
+    <span class="by">— Gilbert Strang · §3.1 Spaces of Vectors</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §2.7 Transposes and Permutations / §3.1 Spaces of Vectors</span>
+    pp. 109–125
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>「不封闭就不是空间」是条很硬的判据。用它检查任何自称「系统/体系」的东西：把操作反过来做，还在里面吗？不在了，它就不是自洽的闭系统。</p>  </div>
+
   <nav class="ep-foot">
-<a class="pn prev" href="day-6.html"><span class="d">上一期</span>Day 6 · 后悔药</a><a class="pn next" href="day-8.html"><span class="d">下一期</span>Day 8 · 列空间与零空间</a>  </nav>
+    <a class="pn prev" href="day-6.html">
+      <span class="d">上一期</span>Day 6 · 消元法的后悔药：A = LU
+    </a>
+    <a class="pn next" href="day-8.html">
+      <span class="d">下一期</span>Day 8 · 矩阵是一扇门
+    </a>
+  </nav>
 
 
 </div>

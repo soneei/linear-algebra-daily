@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>求解 Ax=b · 人话线性代数</title>
+<title>¥30 套餐与一桌免费的菜 · 人话线性代数</title>
 <meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
-<meta property="og:title" content="求解 Ax=b">
+<meta property="og:title" content="¥30 套餐与一桌免费的菜">
 <meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css">
@@ -25,20 +25,71 @@
 
   <header class="ep-head">
     <div class="eyebrow">Day 10 · 第一单元 · 2026-06-25</div>
-    <h1>求解 Ax=b</h1>
+    <h1>¥30 套餐与一桌免费的菜</h1>
     <div class="tags">
-<span class="tag tag-draft">整理中</span>    </div>
+<span class="tag">通解</span><span class="tag">特解</span><span class="tag">仿射子空间</span>    </div>
   </header>
 
 
-  <div class="blk blk-pending">
-    <span class="blk-h">这一期的正文还在整理</span>
-    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
-    <p class="pn-topic"><span class="lb">主题</span>特解 + 零空间 = 通解</p>
+  <div class="hook">一份 ¥30 套餐 = 一个特解；桌上的免费小菜 = 零空间。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>餐厅套餐：主食定价 ¥30（锁定你的选择），但免费小菜随便加。</p><p>对应 Ax = b：特解 x_p 是「锁定 b 的那一份」，零空间是「加了不影响总额的免费项」。</p><p>通解 = 一个特解 + 零空间的任意向量：x = x_p + x_n。</p><p>几何上，通解是一个不经过原点的「仿射子空间」——被平移过的空间。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">解的结构</span>
+      <div>通解 = 一个特解 + 零空间的所有向量。特解负责「命中 b」，零空间负责「自由漫步」。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">存在性与唯一性分开看</span>
+      <div>有解 ⇔ b ∈ C(A)（列空间）；唯一解 ⇔ 零空间只有零向量。两个条件互相独立，组合出四种情形。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">仿射 ≠ 线性</span>
+      <div>通解集合不经过原点（除非 b = 0），所以它不是子空间——它是「被平移的子空间」，数学上叫仿射子空间。</div>
+    </div>
   </div>
 
+  <div class="fx">
+    <div class="lb">通解</div>
+    <div class="fr">x = x_p + x_n</div>
+<div class="nt">x_p 是 Ax = b 的任一特解，x_n 取遍零空间 N(A)。当 b 不在列空间里时，无解。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">为什么「特解」要特</span>
+      <div>特解不唯一（任何满足 Ax = b 的 x 都行），我们只是挑一个方便算的（自由变量取 0）。特解不唯一，但零空间是唯一的。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “The complete solution to Ax = b is a particular solution plus any vector in the nullspace.”
+    <span class="by">— Gilbert Strang · §3.3 The Complete Solution to Ax = b</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §3.3 The Complete Solution to Ax = b</span>
+    pp. 145–160
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>「一个特解 + 零空间」这个结构，在生活里处处可见：任何一个「可行方案」都可以再加上若干「不影响结果的动作」。做决策时值得问一句：我加的这些动作，落在零空间里吗？</p>  </div>
+
   <nav class="ep-foot">
-<a class="pn prev" href="day-9.html"><span class="d">上一期</span>Day 9 · 求解 Ax=0</a><a class="pn next" href="day-11.html"><span class="d">下一期</span>Day 11 · 线性无关、基、维数</a>  </nav>
+    <a class="pn prev" href="day-9.html">
+      <span class="d">上一期</span>Day 9 · 自由变量的人生哲学
+    </a>
+    <a class="pn next" href="day-11.html">
+      <span class="d">下一期</span>Day 11 · 宜家柜子的螺丝，多一颗就废
+    </a>
+  </nav>
 
 
 </div>

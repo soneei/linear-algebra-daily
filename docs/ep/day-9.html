@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>求解 Ax=0 · 人话线性代数</title>
+<title>自由变量的人生哲学 · 人话线性代数</title>
 <meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
-<meta property="og:title" content="求解 Ax=0">
+<meta property="og:title" content="自由变量的人生哲学">
 <meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css">
@@ -25,20 +25,75 @@
 
   <header class="ep-head">
     <div class="eyebrow">Day 9 · 第一单元 · 2026-06-24</div>
-    <h1>求解 Ax=0</h1>
+    <h1>自由变量的人生哲学</h1>
     <div class="tags">
-<span class="tag tag-draft">整理中</span>    </div>
+<span class="tag">零空间</span><span class="tag">自由变量</span><span class="tag">特解</span>    </div>
   </header>
 
 
-  <div class="blk blk-pending">
-    <span class="blk-h">这一期的正文还在整理</span>
-    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
-    <p class="pn-topic"><span class="lb">主题</span>自由变量的人生哲学</p>
+  <div class="hook">当方程比未知数少的时候，有些变量天生就是自由的。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>侦探案子：3 条线索、4 个嫌疑人。线索不足以给所有人定罪。</p><p>必然有 2 个人（自由变量）永远无法被线索确定——他们可以自由取值。</p><p>剩下的 2 个（主变量）则被线索绑死：一旦自由变量定了，主变量就跟着定。</p><p>把自由变量轮流取 (1,0)、(0,1)，就得到两个「特解」。所有特解的线性组合，张成整个零空间。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">自由变量 = 信息的缺口</span>
+      <div>每少一个独立方程（少一个主元），就多一个自由变量。n − r 个自由变量，意味着零空间有 n − r 维——有 n − r 个「随便走也不改变结果」的方向。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">消元不改变零空间</span>
+      <div>N(A) = N(U) = N(R)：行变换不改变 Ax = 0 的解集。所以可以放心先消元，再回代求特解。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">特解张成零空间</span>
+      <div>每个自由变量对应一个特解（把它取 1、其余自由变量取 0）。这些特解线性无关，正好是零空间的一组基。</div>
+    </div>
   </div>
 
+  <div class="fx">
+    <div class="lb">零空间的维数</div>
+    <div class="fr">dim N(A) = n − r</div>
+<div class="nt">n 是列数（未知数个数），r 是秩（主元个数）。自由变量个数 = 零空间维数。</div>  </div>
+  <div class="fx">
+    <div class="lb">特解构造</div>
+    <div class="fr">自由变量取 (1,0,…), (0,1,…) 后回代</div>
+<div class="nt">求出对应的主变量，得到一组线性无关的特解，张成 N(A)。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">零空间为什么是子空间</span>
+      <div>Ax = 0 的解集自动满足「过原点 + 对加法封闭 + 对数乘封闭」：0 是解；两个解相加还是解；解乘任意数还是解。这就是它能叫「空间」的原因。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “Elimination does not change the nullspace: N(A) = N(U) = N(R).”
+    <span class="by">— Gilbert Strang · §3.2 The Nullspace of A</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §3.2 The Nullspace of A: Solving Ax = 0 and Rx = 0</span>
+    pp. 132–140
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>「自由变量」其实是个很实用的概念：一个系统里，哪些变量你管不着、也不需要管？它们就是自由变量。真正需要锁定的，是主变量——数量等于秩。</p>  </div>
+
   <nav class="ep-foot">
-<a class="pn prev" href="day-8.html"><span class="d">上一期</span>Day 8 · 列空间与零空间</a><a class="pn next" href="day-10.html"><span class="d">下一期</span>Day 10 · 求解 Ax=b</a>  </nav>
+    <a class="pn prev" href="day-8.html">
+      <span class="d">上一期</span>Day 8 · 矩阵是一扇门
+    </a>
+    <a class="pn next" href="day-10.html">
+      <span class="d">下一期</span>Day 10 · ¥30 套餐与一桌免费的菜
+    </a>
+  </nav>
 
 
 </div>

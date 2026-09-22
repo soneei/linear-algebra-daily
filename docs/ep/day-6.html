@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>后悔药 · 人话线性代数</title>
+<title>消元法的后悔药：A = LU · 人话线性代数</title>
 <meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
-<meta property="og:title" content="后悔药">
+<meta property="og:title" content="消元法的后悔药：A = LU">
 <meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css">
@@ -25,20 +25,71 @@
 
   <header class="ep-head">
     <div class="eyebrow">Day 6 · 第一单元 · 2026-06-18</div>
-    <h1>后悔药</h1>
+    <h1>消元法的后悔药：A = LU</h1>
     <div class="tags">
-<span class="tag tag-draft">整理中</span>    </div>
+<span class="tag">LU分解</span><span class="tag">消元</span><span class="tag">三角矩阵</span>    </div>
   </header>
 
 
-  <div class="blk blk-pending">
-    <span class="blk-h">这一期的正文还在整理</span>
-    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
-    <p class="pn-topic"><span class="lb">主题</span>LU分解 — 消元法的</p>
+  <div class="hook">消元时顺手把「做过什么」记下来，你就得到一颗后悔药——换个 b，不用重消一遍。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>一份番茄炒蛋的配方被改了三遍：先减盐、再减油、最后加糖。</p><p>只留最终成品，你永远不知道改了什么；但如果每一步都留一张便签，就能随时还原。</p><p>LU 分解就是这些便签：L 记录消元每一步「用了什么乘数、动了哪一行」，U 是消元后的上三角矩阵。</p><p>奇迹：乘数不需要额外计算，它们原封不动地落进 L 的对应位置——不乱不混。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">乘数直接落位</span>
+      <div>通常矩阵乘法会把数字搅成一团，但在 LU 分解里不会：消元第 (i,j) 步用的乘数，正好就是 L 的第 (i,j) 个元素。Strang 特意强调这个「不发生混合」的奇迹。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">L 的对角线全是 1</span>
+      <div>L 的对角线上全是 1（基准行不需要记录），真正承载信息的是对角线以下的部分。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">一次分解，反复使用</span>
+      <div>A = LU 的最大价值是复用：换一个右边项 b，只要两步——先解 Lc = b（前向代入），再解 Ux = c（后向代入），都是 O(n²)，比重新消元的 O(n³) 便宜得多。</div>
+    </div>
   </div>
 
+  <div class="fx">
+    <div class="lb">LU 分解</div>
+    <div class="fr">A = L U</div>
+<div class="nt">L 是下三角（对角全 1，记录乘数），U 是上三角（消元结果）。若需换行，则写成 PA = LU，P 是置换矩阵。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">为什么这是「纯实用」的一节</span>
+      <div>Strang 说：学生常抱怨数学课太理论——但这一节不是，它几乎纯粹是实用的。LU 是数值线性代数里最常被调用的分解之一。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “Students often say that mathematics courses are too theoretical. Well, not this section. It is almost purely practical.”
+    <span class="by">— Gilbert Strang · §2.6 Elimination = Factorization: A = LU</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §2.6 Elimination = Factorization: A = LU</span>
+    pp. 96–98
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>LU 的本质是「把过程留痕」。这跟审计里的操作日志是同一个思想：结果重要，但「怎么走到结果」的过程，才是复用和追责的依据。</p>  </div>
+
   <nav class="ep-foot">
-<a class="pn prev" href="day-5.html"><span class="d">上一期</span>Day 5 · 矩阵乘法与逆矩阵</a><a class="pn next" href="day-7.html"><span class="d">下一期</span>Day 7 · 转置、置换、向量空间 R^n</a>  </nav>
+    <a class="pn prev" href="day-5.html">
+      <span class="d">上一期</span>Day 5 · 珍珠奶茶里的三种矩阵乘法
+    </a>
+    <a class="pn next" href="day-7.html">
+      <span class="d">下一期</span>Day 7 · 第一象限不是向量空间
+    </a>
+  </nav>
 
 
 </div>

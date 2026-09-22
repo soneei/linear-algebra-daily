@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>线性无关、基、维数 · 人话线性代数</title>
+<title>宜家柜子的螺丝，多一颗就废 · 人话线性代数</title>
 <meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
-<meta property="og:title" content="线性无关、基、维数">
+<meta property="og:title" content="宜家柜子的螺丝，多一颗就废">
 <meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css">
@@ -25,19 +25,75 @@
 
   <header class="ep-head">
     <div class="eyebrow">Day 11 · 第一单元 · 2026-06-26</div>
-    <h1>线性无关、基、维数</h1>
+    <h1>宜家柜子的螺丝，多一颗就废</h1>
     <div class="tags">
-<span class="tag tag-draft">整理中</span>    </div>
+<span class="tag">线性无关</span><span class="tag">基</span><span class="tag">维数</span>    </div>
   </header>
 
 
-  <div class="blk blk-pending">
-    <span class="blk-h">这一期的正文还在整理</span>
-    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
+  <div class="hook">在 2 维空间里塞 3 个独立向量，就像在 4 个抽屉里塞 8 颗螺丝——必然有抽屉要合并。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>宜家的柜子配 8 颗螺丝、4 个孔位——多出来的螺丝无处可拧。</p><p>数学里同理：在 Rᵐ 中，任何 m+1 个向量必然线性相关。</p><p>反过来，一个空间里「最少且刚好」张成它的那组向量，叫基（basis）。</p><p>基里向量的个数，叫维数（dimension）——而且任何一组基，个数都一样。这是定理，不是定义。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">维数是被证明出来的</span>
+      <div>「所有基的向量个数都相等」不是定义，是定理。正因如此，「维数」才可以被定义为基的向量个数。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">三副面孔同一张脸</span>
+      <div>下面三件事互为等价：零空间只有零向量 ⇔ 各列线性无关 ⇔ 满秩 r = n。这是本单元反复出现的主题。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">基 = 不冗余也不缺角</span>
+      <div>基的两个要求：张成整个空间（不缺），且线性无关（不冗余）。少一个向量就张不成，多一个就必然相关。</div>
+    </div>
   </div>
 
+  <div class="fx">
+    <div class="lb">线性无关</div>
+    <div class="fr">c₁v₁ + c₂v₂ + … + cₙvₙ = 0 仅有零解 c = 0</div>
+<div class="nt">没有任何一个向量能由其余的线性组合出来。等价于以它们为列的矩阵零空间只有零向量。</div>  </div>
+  <div class="fx">
+    <div class="lb">维数定理</div>
+    <div class="fr">任何基都含相同个数的向量</div>
+<div class="nt">个数即空间的维数。Rⁿ 的维数是 n；列空间维数是 r；零空间维数是 n − r。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">Rᵐ 里最多几个独立向量</span>
+      <div>最多 m 个，超过必然相关。这解释了为什么「方程多于未知数」时经常无解，也解释了为什么绝大多数 m×n（m > n）矩阵不可逆。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “All bases for a vector space contain the same number of vectors. The number of vectors, in any and every basis, is the &#39;dimension&#39; of the space.”
+    <span class="by">— Gilbert Strang · §3.4 Independence, Basis and Dimension</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §3.4 Independence, Basis and Dimension</span>
+    pp. 163–180
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>「最小且完整」是一对张力。基就是这种平衡的产物：多一个冗余，少一个残缺。想想你手头的信息/指标/资源，哪些是基、哪些是冗余？把冗余拿掉，系统反而更清晰。</p>  </div>
+
   <nav class="ep-foot">
-<a class="pn prev" href="day-10.html"><span class="d">上一期</span>Day 10 · 求解 Ax=b</a><a class="pn next" href="day-12.html"><span class="d">下一期</span>Day 12 · 横跨两个世界的四间房</a>  </nav>
+    <a class="pn prev" href="day-10.html">
+      <span class="d">上一期</span>Day 10 · ¥30 套餐与一桌免费的菜
+    </a>
+    <a class="pn next" href="day-12.html">
+      <span class="d">下一期</span>Day 12 · 横跨两个世界的四间房
+    </a>
+  </nav>
 
 
 </div>

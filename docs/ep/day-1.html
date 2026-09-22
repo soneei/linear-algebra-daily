@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>单元总述 · 人话线性代数</title>
+<title>你不能把苹果和橘子加在一起 · 人话线性代数</title>
 <meta name="description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
-<meta property="og:title" content="单元总述">
+<meta property="og:title" content="你不能把苹果和橘子加在一起">
 <meta property="og:description" content="把 Gilbert Strang 的线代课，从公式堆里捞出来，放回生活里。每一期一个钩子、一个原理、一段教材原文。">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/style.css">
@@ -25,20 +25,68 @@
 
   <header class="ep-head">
     <div class="eyebrow">Day 1 · 第一单元 · 2026-06-05</div>
-    <h1>单元总述</h1>
+    <h1>你不能把苹果和橘子加在一起</h1>
     <div class="tags">
-<span class="tag tag-draft">整理中</span>    </div>
+<span class="tag">向量</span><span class="tag">线性组合</span><span class="tag">整门课地图</span>    </div>
   </header>
 
 
-  <div class="blk blk-pending">
-    <span class="blk-h">这一期的正文还在整理</span>
-    <p>原始推送的 HTML 已被每日覆盖，只剩这份内容大纲。正文正在从学习日志与课程笔记中重建。</p>
-    <p class="pn-topic"><span class="lb">主题</span>线性代数概览</p>
+  <div class="hook">整门课的第一句话，Strang 没写公式，写的是常识：你不能把苹果和橘子加在一起。</div>
+
+  <div class="blk blk-story">
+    <span class="blk-h">先看一个现象</span>
+<p>线性代数的两个基本操作，其实你在小学就学会了——<b>加法</b>和<b>数乘</b>。</p><p>3 个苹果 + 2 个苹果 = 5 个苹果（同类相加）；3 个苹果 × 2 = 6 个苹果（拉伸）。</p><p>但 3 个苹果 + 2 个橘子，写不成一个数字——它们不在同一个「分量」上。</p><p>向量 (3, 2) 的意思就是：苹果方向 3 份、橘子方向 2 份。它天生是「打包」的——每个分量各自相加，绝不跨界。</p>  </div>
+
+  <div class="blk blk-insight">
+    <span class="blk-h">背后的道理</span>
+    <div class="ins-item">
+      <span class="it">整门课只研究两件事</span>
+      <div>线性代数的中心只有两个操作：向量相加、向量数乘。所有概念——矩阵、子空间、特征值、最小二乘——都是这两件事的延伸。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">向量 = 有序的一组数</span>
+      <div>v = (v₁, v₂) 里，v₁ 和 v₂ 的地位由「位置」决定，不能互换。位置本身就是信息：第一分量永远代表第一维度。</div>
+    </div>
+    <div class="ins-item">
+      <span class="it">线性组合是全局关键词</span>
+      <div>c·v + d·w 这种「各取几份再加起来」的形式叫线性组合。Strang 说：Linear combinations are the key to linear algebra。整本书都在研究「哪些组合能到达哪些地方」。</div>
+    </div>
   </div>
 
+  <div class="fx">
+    <div class="lb">线性组合</div>
+    <div class="fr">c·v + d·w</div>
+<div class="nt">v、w 是向量，c、d 是任意实数。改变 c、d 就能扫出一整个平面——这正是「列空间」的原型。</div>  </div>
+
+  <div class="blk blk-trivia">
+    <span class="blk-h">冷知识</span>
+    <div class="ins-item">
+      <span class="it">零向量不是「没有东西」</span>
+      <div>数字 0 是「没有东西」，零向量 0 = (0, 0) 却是「苹果 0 份、橘子 0 份」——它是一个真正的向量，住在原点，可以参与运算。</div>
+    </div>
+  </div>
+
+  <div class="blk blk-quote">
+    <span class="blk-h">Strang 原话</span>
+    “You can&#39;t add apples and oranges.”
+    <span class="by">— Gilbert Strang · §1.1 Vectors and Linear Combinations</span>
+  </div>
+
+  <div class="blk blk-source">
+    <span class="blk-h">教材出处</span>
+    <span class="src-ref">Introduction to Linear Algebra (5th) · §1.1 Vectors and Linear Combinations</span>
+    pp. 13–24
+  </div>
+
+  <div class="blk blk-think">
+    <span class="blk-h">留一个想头</span>
+<p>整门课的第一课其实在教你「怎么分类」。任何一组「不能混着加」的东西，都天然是一组向量分量。想想你手上那些不能相加的指标——它们各自就是一个维度。</p>  </div>
+
   <nav class="ep-foot">
-<a class="pn next" href="day-2.html"><span class="d">下一期</span>Day 2 · 行图像 vs 列图像</a>  </nav>
+    <a class="pn next" href="day-2.html">
+      <span class="d">下一期</span>Day 2 · 一个方程组，两张照片
+    </a>
+  </nav>
 
 
 </div>
